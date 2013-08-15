@@ -1,26 +1,18 @@
 <h1>Listing topics</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @topics.each do |topic| %>
-      <tr>
+
+    <div>  <%= image_tag "ordner.png",class: "folder",size: "30x30" %>  <p class = "topic" > <%= link_to topic.name,topic %>  </p> </div>
+      
+
+      <!-- <tr>
         <td><%= topic.name %></td>
         <td><%= link_to 'Show', topic %></td>
         <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
         <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      </tr> -->
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
