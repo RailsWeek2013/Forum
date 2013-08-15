@@ -3,7 +3,7 @@
 
     <% @topics.each do |topic| %>
 
-    <div>  <%= image_tag "ordner.png",class: "folder",size: "30x30" %>  <p class = "topic" > <%= link_to topic.name,topic %>  </p> </div>
+    <div>  <%= image_tag "ordner.png",class: "folder",size: "30x30" %>  <p class = "topic" > <%= link_to topic.name, "/topics/#{topic.id}/user_threads",method: :get %>  </p> </div>
       
 
       <!-- <tr>

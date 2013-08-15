@@ -6,8 +6,7 @@ class TopicsController < ApplicationController
     @topics = Topic.all
   end
 
-  # GET /topics/1
-  def show
+  def show 
   end
 
   # GET /topics/new
@@ -24,7 +23,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
 
       if @topic.save
-        redirect_to @topic, notice: 'Topic was successfully created.'
+        redirect_to action: 'index'
       else
         render action: 'new'
       end
@@ -33,7 +32,7 @@ class TopicsController < ApplicationController
   # PATCH/PUT /topics/1
   def update
       if @topic.update(topic_params)
-        fredirect_to @topic, notice: 'Topic was successfully updated.'
+        redirect_to action: 'index'
       else
         render action: 'edit'
       end

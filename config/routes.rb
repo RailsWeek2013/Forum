@@ -1,5 +1,5 @@
 Forum::Application.routes.draw do
-
+  root 'topics#index'
   resources :topics do 
     resources :user_threads
   end

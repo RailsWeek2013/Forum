@@ -25,7 +25,7 @@ class UserThreadsController < ApplicationController
       @user_thread.topic = Topic.find(params[:topic_id])
 
       if @user_thread.save
-        redirect_to [@user_thread.topic, @user_thread], notice: 'User thread was successfully created.'
+        redirect_to action:'index', notice: 'User thread was successfully created.'
       else
         render action: 'new'
       end
