@@ -1,0 +1,2 @@
+module UserThreadsHelper
+end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @user_thread.title %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @user_thread.topic.name %>
+</p>
+
+<%= link_to 'Edit', edit_topic_user_thread_path(@user_thread, @user_thread.topic) %> |
+<%= link_to 'Back', topic_user_threads_path %>

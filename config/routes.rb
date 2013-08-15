@@ -1,5 +1,8 @@
 Forum::Application.routes.draw do
-  resources :topics
+
+  resources :topics do 
+    resources :user_threads
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
