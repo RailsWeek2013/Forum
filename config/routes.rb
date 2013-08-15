@@ -1,7 +1,10 @@
 Forum::Application.routes.draw do
 
+
   resources :topics do 
-    resources :user_threads
+    resources :user_threads do 
+      resources :posts
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
