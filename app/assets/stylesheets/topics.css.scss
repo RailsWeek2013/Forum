@@ -1,3 +1,40 @@
 // Place all the styles related to the Topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ 
+
+ .mainHeader {
+
+ 	width:100%;
+ 	height: 30%;
+ 	background-color:darkblue;
+
+ }
+
+ .mainFooter {
+
+ 	width:100%;
+ 	height: 30%;
+ 	background-color:darkblue;
+ 	margin:0;
+
+ }
+
+ .mainContent {
+ 	margin:0;
+ 	border:3px;
+ 	border-style: solid;
+ 	border-color:darkblue;
+
+ }
+
+ .headerText {
+
+	text-align: center;
+	margin:auto;
+	text-decoration: bold;
+ 	font-color:#FFF;
+ 	font-size: 20px;
+ }
+
+
