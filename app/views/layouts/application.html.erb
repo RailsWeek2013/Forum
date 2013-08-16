@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Forum</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<title>Forum</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-<div>
- <div class = "mainHeader">
- 	<p class= "headerText"> Header </p>
- </div> 
-<div class = "mainContent">
-	<%= yield %>
-</div>
-<div class = "mainFooter">
-	<p> Impressum </p> 
-</div>
+	<div>
+		<%= render partial: "layouts/header" %>
+	</div> 
+	<div class = "mainContent">
+		<%= yield %>
+	</div>
+	<div class = "mainFooter">
+		<p> Impressum </p> 
+	</div>
 </div>
 </body>
 </html>
