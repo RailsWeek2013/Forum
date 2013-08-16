@@ -28,7 +28,7 @@ class UserThreadsController < ApplicationController
 
       if @user_thread.save
         #redirect_to action:'index', notice: 'User thread was successfully created.'
-        redirect_to [@topic, @user_thread], notice: 'User thread was successfully created.'
+        redirect_to topic_user_threads_path(@topic), notice: 'User thread was successfully created.'
       else
         render action: 'new'
       end

@@ -14,5 +14,8 @@
 
 <br>
 
+
+<% if user_signed_in? %>
 <%= link_to 'New User thread', new_topic_user_thread_path %>
+<% end %>
 <%= link_to 'Back', root_path %>
