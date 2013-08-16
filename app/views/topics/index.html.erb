@@ -16,4 +16,8 @@
 
 <br>
 
-<%= link_to 'New Topic', new_topic_path %>
+	<% if current_user.try(:admin?) %>
+
+	<%= link_to 'New Topic', new_topic_path %>
+
+	<% end %>
