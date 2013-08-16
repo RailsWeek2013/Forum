@@ -2,18 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#containerAll {
+	width:90%;
+	margin: 0 auto;
+}
 
 .container {
-	width:90%;
 	height:80%;
-	margin: 0 auto;
 	padding:0;
 	border: 1px solid #846FD7;
 	box-shadow: 10px 10px 5px #888;
+	margin-bottom: 10px;
+	margin-top: 10px;
 } 
 
 .postHeader {
-
 	width:100%;
 	margin:0;
 	padding:0;
@@ -24,11 +27,15 @@
 }
 
 .title {
-
 	margin:0;
 	padding:0;
 	font-weight: bold;
 	font-color:#FFCF00;
 	color:#FFCF00;
 
+}
+
+#addPost {
+	border: 1px solid black;
+	height: 120px;
 }
