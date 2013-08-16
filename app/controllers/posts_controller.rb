@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = @userThread.posts.all
+    @post = @userThread.posts.new
   end
 
   # GET /posts/1
@@ -14,7 +15,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = @userThread.posts.new
   end
 
   # GET /posts/1/edit

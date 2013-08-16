@@ -1,25 +1,3 @@
 <h1><%= @userThread.title %></h1>
-
-
-
-    <% @posts.each do |post| %>
-    <div class = "container">
-      <div class ="postHeader">
-       <p class = "title"> <%= post.title %> </p>
-      </div>
-
-      <div class = "postContent">
-          <p> <%= post.content %> </p>
-      </div>
-    </div>
-
-    <br>
-        <!--_
-        <td><%= link_to 'Show', topic_user_thread_post_path(@topic, @userThread, post) %></td>
-        <td><%= link_to 'Edit', edit_topic_user_thread_post_path(@topic, @userThread, post) %></td>
-        <td><%= link_to 'Destroy', topic_user_thread_post_path(@topic, @userThread, post), method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-    <% end %>
-
-<br>
-
-<%= link_to 'New Post', new_topic_user_thread_post_path %>
+<%= render @posts %>
+<%= render partial: "addPost" %>
