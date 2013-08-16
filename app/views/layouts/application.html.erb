@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Forum</title>
+	<title><%= @tile ||= "Forum" %></title>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div>
-		<%= render partial: "layouts/header" %>
-	</div> 
-	<div class = "mainContent">
+	<%= render partial: "layouts/header" %>
+	<div id="mainContent">
 		<%= yield %>
 	</div>
-	<div class = "mainFooter">
-		<p> Impressum </p> 
-	</div>
+	<%= render partial: "layouts/footer" %>
 </div>
 </body>
 </html>
