@@ -23,6 +23,7 @@ class UserThreadsController < ApplicationController
   # POST /user_threads
   def create
       @user_thread = @topic.userThreads.new(user_thread_params)
+      @user_thread.user = current_user
       #@user_thread.topic = Topic.find(params[:topic_id]) # sollte er selber setzen
 
       if @user_thread.save
