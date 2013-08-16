@@ -26,10 +26,21 @@
 
 .title {
 	margin:0;
-	padding:0;
+	padding-right:40%;
 	font-weight: bold;
 	font-color:#FFCF00;
 	color:#FFCF00;
+	float:left;
+	
+}
+
+.name {
+
+	margin:0;
+	padding:0;
+	font-weight:bold;
+	color:#FFCF00;
+	
 }
 
 #addPost {
