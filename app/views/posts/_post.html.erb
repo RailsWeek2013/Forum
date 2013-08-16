@@ -1,9 +1,12 @@
 <div class = "container">
-  <div class ="postHeader">
-   <p class = "title"> <%= post.title %> </p>
- </div>
+	<div class ="postHeader">
+		<p class = "title"> <%= post.title %> </p>
+	</div>
 
- <div class = "postContent">
-  <p> <%= post.content %> </p>
-</div>
+	<div class = "postContent">
+		<p> <%= post.content %> </p>
+	</div>
+
+	<%= render partial: "spam", locals: {post: post} %>
+
 </div>

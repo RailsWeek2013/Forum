@@ -1,0 +1,10 @@
+<% unless post.spam %>
+	<%= form_for([@topic, @userThread, post]) do |f| %>
+		<div class="field">
+			<%= f.hidden_field :spam, value: true %>
+		</div>
+		<div class="actions">
+			<%= f.submit "SPAM" %>
+		</div>
+	<% end %>
+<% end %>
