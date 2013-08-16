@@ -3,7 +3,7 @@
 
     <% @user_threads.each do |user_thread| %>
 
-      <div>  <%= image_tag "ordner.png",class: "folder",size: "30x30" %>  <p class = "topic" > <%= link_to user_thread.title , topic_user_thread_path(user_thread.topic,user_thread) %>  </p> </div> 
+      <div>  <%= image_tag "ordner.png",class: "folder",size: "30x30" %>  <p class = "topic" > <%= link_to user_thread.title , topic_user_thread_posts_path(@topic,user_thread)  %>  </p> </div> 
        <!-- <td><%= user_thread.title %></td>
         <td><%= user_thread.topic.name %></td>
         

@@ -1,34 +1,24 @@
-<h1>Listing posts</h1>
+<h1><%= @userThread.title %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Spam</th>
-      <th>Userthread</th>
-      <th>Rating</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.spam %></td>
-        <td><%= @userThread.title %></td>
-        <td><%= post.rating %></td>
+    <div class = "container">
+      <div class ="postHeader">
+       <p class = "title"> <%= post.title %> </p>
+      </div>
+
+      <div class = "postContent">
+          <p> <%= post.content %> </p>
+      </div>
+    </div>
+
+    <br>
+        <!--_
         <td><%= link_to 'Show', topic_user_thread_post_path(@topic, @userThread, post) %></td>
         <td><%= link_to 'Edit', edit_topic_user_thread_post_path(@topic, @userThread, post) %></td>
-        <td><%= link_to 'Destroy', topic_user_thread_post_path(@topic, @userThread, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Destroy', topic_user_thread_post_path(@topic, @userThread, post), method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
     <% end %>
-  </tbody>
-</table>
 
 <br>
 

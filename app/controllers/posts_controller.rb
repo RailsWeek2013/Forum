@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     @post = @userThread.posts.new(post_params)
 
       if @post.save
-        redirect_to [@topic, @userThread, @post], notice: 'Post was successfully created.'
+        redirect_to topic_user_thread_posts_path(@topic,@userThread), notice: 'Post was successfully created.'
       else
         render action: 'new'
       end

@@ -6,7 +6,8 @@ class TopicsController < ApplicationController
     @topics = Topic.all
   end
 
-  def show 
+  def show
+     
   end
 
   # GET /topics/new
