@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130816122023) do
+ActiveRecord::Schema.define(version: 20130818081029) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -32,30 +32,32 @@ ActiveRecord::Schema.define(version: 20130816122023) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "posts", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.boolean  "spam"
-    t.integer  "user_thread_id"
-    t.integer  "rating"
+    t.string   "title",                          null: false
+    t.text     "content",                        null: false
+    t.boolean  "spam",           default: false, null: false
+    t.integer  "user_thread_id",                 null: false
+    t.integer  "rating",         default: 0,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "user_id",                        null: false
   end
 
   add_index "posts", ["user_thread_id"], name: "index_posts_on_user_thread_id"
 
   create_table "topics", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "topics", ["name"], name: "index_topics_on_name", unique: true
+
   create_table "user_threads", force: true do |t|
-    t.string   "title"
-    t.integer  "topic_id"
+    t.string   "title",      null: false
+    t.integer  "topic_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "user_id",    null: false
   end
 
   create_table "users", force: true do |t|
