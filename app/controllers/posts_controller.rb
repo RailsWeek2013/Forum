@@ -24,13 +24,14 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
+    @posts = @userThread.posts.all
     @post = @userThread.posts.new(post_params)
     @post.user = current_user
 
       if @post.save
         redirect_to topic_user_thread_posts_path(@topic,@userThread), notice: 'Post was successfully created.'
       else
-        render action: 'new'
+        render action: 'index'
       end
   end
 
