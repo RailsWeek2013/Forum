@@ -1,12 +1,25 @@
 <h1> Admin-Bereich </h1>
 
 <table border = 1>
-	<tr> <th> User-Email </th> <th> Löschen </th> <th> Editieren </th> </tr>
+	<tr> <th> User-Email </th> <th> Löschen </th> </tr>
 
 	<% @users.each do |user| %>
 
-		<tr> <td> <%= user.email %> </td>  <td> <%= link_to "Löschen",admins_destroy_path(user.id), method: :delete %> </td> <td> </td> </tr>
+		<tr> <td> <%= user.email %> </td>  <td> <%= link_to "Löschen",admins_destroy_path(user.id), method: :delete %> </td> </tr>
 
 	<% end %>
 
-</table>
+</table> 
+
+ <table border = 1>
+ 	<tr> <th> Spampost </th> <th> Spam ? </th> </tr>
+
+ 	<% @posts.each do |post| %>
+
+ 		<% if post.spam? %>
+ 			<tr> <td> <%= post.title %> </td> <td> <%= link_to "Kein Spam", admins_nospam_path(post.id) %> </td> </tr> 
+ 			<% end %>
+
+ 		<% end %>
+
+ 	</table>

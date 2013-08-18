@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 
-	before_action :setUsers
+	before_action :setUsers , :setPosts
 
   def index
   	if current_user.try(:admin?)
@@ -16,8 +16,12 @@ class AdminsController < ApplicationController
   	render action: :index
   end
 
-  def edit
 
+  def noSpam
+  	post = @posts.find(params[:id])
+  	post.spam = false
+  	post.save
+  	render action: :index
   end
 
   private 
@@ -25,5 +29,10 @@ class AdminsController < ApplicationController
   def setUsers
   	@users = User.all
   end
+
+  def setPosts
+  	@posts = Post.all
+  end
+
 
 end
