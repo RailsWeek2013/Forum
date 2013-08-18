@@ -1,7 +1,7 @@
 Forum::Application.routes.draw do
 
   get "admins/index"
-  get "admins/destroy"
+  delete "admins/destroy/:id" => 'admins#destroy', as: :admins_destroy
   get "admins/edit"
   devise_for :admins
   devise_for :users

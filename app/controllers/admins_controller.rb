@@ -8,11 +8,12 @@ class AdminsController < ApplicationController
   	else
   		redirect_to root_path
   	end
-  	
+
   end
 
   def destroy
-
+  	User.find(params[:id]).destroy
+  	render action: :index
   end
 
   def edit
