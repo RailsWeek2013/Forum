@@ -1,0 +1,12 @@
+<h1> Admin-Bereich </h1>
+
+<table border = 1>
+	<tr> <th> User-Email </th> <th> Löschen </th> <th> Editieren </th> </tr>
+
+	<% @users.each do |user| %>
+
+		<tr> <td> <%= user.email %> </td> <td> </td> <td> </td> </tr>
+
+	<% end %>
+
+</table>

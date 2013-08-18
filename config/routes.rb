@@ -1,5 +1,8 @@
 Forum::Application.routes.draw do
 
+  get "admins/index"
+  get "admins/destroy"
+  get "admins/edit"
   devise_for :admins
   devise_for :users
   root 'topics#index'
