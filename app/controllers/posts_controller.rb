@@ -58,6 +58,24 @@ class PostsController < ApplicationController
     redirect_to topic_user_thread_posts_url
   end
 
+  def rate_up
+    @post = Post.find(params[:id])
+    @post.rating += 1
+    @post.save
+    redirect_to action: 'index'
+  end
+
+  def rate_down
+    @post = Post.find(params[:id])
+
+    if @post.rating > 0
+      @post.rating -= 1
+    end
+
+    @post.save
+    redirect_to action: 'index'
+  end
+
   private
 
     def set_post_topic
