@@ -65,7 +65,7 @@ class PostsController < ApplicationController
     end
 
     def set_post_user_thread
-      @userThread = @topic.userThreads.find(params[:user_thread_id])
+      @userThread = @topic.user_threads.find(params[:user_thread_id])
     end
 
     # Use callbacks to share common setup or constraints between actions.
