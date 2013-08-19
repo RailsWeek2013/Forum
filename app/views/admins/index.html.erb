@@ -6,7 +6,7 @@
 
 		<td>
 
-<table id = "userTable" border = "1px">
+<table id = "userTable">
 	<tr> <th> User-Email </th> <th> Löschen </th> </tr>
 
 	<% @users.each do |user| %>
@@ -21,7 +21,7 @@
 
 	<td>
 
- <table id = "spamTable" border = "1px">
+ <table id = "spamTable">
  	<tr> <th> Spampost </th> <th> Spam ? </th> </tr>
 
  	<% @posts.each do |post| %>
@@ -35,7 +35,7 @@
  	</table>
 
  	<td>
- 		<table border = 1>
+ 		<table id = "postTable">
  			<tr> <th> Post </th> <th> User </th> <th> Datum </th> </tr>
 
  			<% @posts.each do |post| %>
