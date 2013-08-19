@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  	belongs_to :userThread
+  	belongs_to :user_thread
   	belongs_to :user
 
   	validates :title, 
