@@ -10,3 +10,5 @@
 <% @contentResults.each do |result| %>
 	<p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,anchor:"post#{result.id}")%> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
 <% end %>
+
+<%= link_to "Back", root_path %>
