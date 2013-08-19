@@ -85,3 +85,15 @@
  	float: left;
  	padding-right: 10px;
  }
+
+ .alert {
+
+ 	color:red;
+
+ }
+
+ .notice {
+
+ 	color:green;
+
+ }
