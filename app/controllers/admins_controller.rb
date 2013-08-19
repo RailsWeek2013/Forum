@@ -12,8 +12,13 @@ class AdminsController < ApplicationController
   end
 
   def destroy
+    unless current_user.try(:admin?) 
   	User.find(params[:id]).destroy
+    else
+      flash.now[:alert] = "Admin kann nicht geloescht werden"
+    end
   	render action: :index
+
   end
 
 
