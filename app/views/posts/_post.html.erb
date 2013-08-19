@@ -1,7 +1,8 @@
 <div class = "container">
 
 	<div class ="postHeader">
-  		<p class = "title"> <%= post.title %> </p> <p class = "name"> <%= post.user.email %> </p>
+  		<p class = "title"> <%= post.title %> </p> 
+  		<p class = "name"> <%= link_to post.user.email, show_user_path(post.user) %> </p>
  	</div>
 
 	<div class = "postContent">

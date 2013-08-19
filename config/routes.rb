@@ -14,7 +14,8 @@ Forum::Application.routes.draw do
     end
   end
 
-  get 'user' => 'user#show'
+  get 'user' => 'user#show_current_user'
+  get 'user/:id' => 'user#show', as: 'show_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

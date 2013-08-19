@@ -1,0 +1,39 @@
+<h1>Profil</h1>
+<table> 
+	<tr>
+		<td>Email: </td>
+		<td><%= @user.email %></td>
+	</tr>
+	<tr>
+		<td>Vorname: </td>
+		<td><%= @user.name %></td>
+	</tr>
+	<tr>
+		<td>Nachname: </td>
+		<td><%= @user.lastname %></td>
+	</tr>
+	<tr>
+		<td>Geburtsdatum: </td>
+		<td><%= @user.birthday %></td>
+	</tr>
+	<tr>
+		<td>Geschlecht: </td>
+		<td><%= @user.gender %></td>
+	</tr>
+	<tr>
+		<td>Signatur: </td>
+		<td><%= @user.signature %></td>
+	</tr>
+	<tr>
+		<td>Letzter Login: </td>
+		<td><%= @user.last_sign_in_at %></td>
+	</tr>
+	<tr>
+		<td>Account erstellt: </td>
+		<td><%= @user.created_at %></td>
+	</tr>
+	<tr>
+		<td>Admin: </td>
+		<td><%= @user.admin %></td>
+	</tr>
+</table>
