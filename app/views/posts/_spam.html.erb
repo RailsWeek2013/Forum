@@ -1,12 +1,5 @@
 <% unless post.spam %>
-	<%= form_for([@topic, @userThread, post], url: spam_topic_user_thread_post_path(@topic, @userThread, post)) do |f| %>
-		<div class="field">
-			<%= f.hidden_field :spam, value: true %>
-		</div>
-		<div class="actions">
-			<%= f.submit "SPAM" %>
-		</div>
-	<% end %>
+	<%= link_to "Spam", spam_topic_user_thread_post_path(@topic, @userThread, post), method: :patch %>
 <% else %>
 	<p>Post wurde als Spam gekennzeichnet</p>
 <% end %>

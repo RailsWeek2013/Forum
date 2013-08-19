@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.spam = true
     post.save
-    redirect_to topic_user_thread_posts_path(@topic, @userThread)
+    redirect_to action: 'index'
   end
 
   # POST /posts
