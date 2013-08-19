@@ -4,7 +4,7 @@ class UserThreadsController < ApplicationController
 
   # GET /user_threads
   def index
-    @user_threads = @topic.userThreads.all
+    @user_threads = @topic.user_threads.all
   end
 
   # GET /user_threads/1
@@ -13,7 +13,7 @@ class UserThreadsController < ApplicationController
 
   # GET /user_threads/new
   def new
-    @user_thread = @topic.userThreads.new
+    @user_thread = @topic.user_threads.new
   end
 
   # GET /user_threads/1/edit
@@ -22,7 +22,7 @@ class UserThreadsController < ApplicationController
 
   # POST /user_threads
   def create
-      @user_thread = @topic.userThreads.new(user_thread_params)
+      @user_thread = @topic.user_threads.new(user_thread_params)
       @user_thread.user = current_user
       #@user_thread.topic = Topic.find(params[:topic_id]) # sollte er selber setzen
 
@@ -57,7 +57,7 @@ class UserThreadsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_user_thread
-      @user_thread = @topic.userThreads.find(params[:id])
+      @user_thread = @topic.user_threads.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

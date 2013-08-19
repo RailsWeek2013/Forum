@@ -1,5 +1,7 @@
 Forum::Application.routes.draw do
 
+  get "search" => "search#search"
+  get "search/search" 
   get "admins/index"
   delete "admins/destroy/:id" => 'admins#destroy', as: :admins_destroy
   patch "admins/nospam/:id" => 'admins#noSpam' , as: :admins_nospam
