@@ -17,7 +17,10 @@ Forum::Application.routes.draw do
     end
   end
 
-  get 'user' => 'user#show_current_user'
+  get 'user' => 'user#show_current_user', as: 'show_current_user'
+  get 'user/edit' => 'user#edit', as: 'edit_user'
+  patch 'user' => 'user#update'
+  put 'user' => 'user#update'
   get 'user/:id' => 'user#show', as: 'show_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
