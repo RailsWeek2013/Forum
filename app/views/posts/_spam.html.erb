@@ -1,5 +1,5 @@
 <% unless post.spam %>
-	<%= form_for([@topic, @userThread, post]) do |f| %>
+	<%= form_for([@topic, @userThread, post], url: spam_topic_user_thread_post_path(@topic, @userThread, post)) do |f| %>
 		<div class="field">
 			<%= f.hidden_field :spam, value: true %>
 		</div>

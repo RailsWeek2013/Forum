@@ -22,6 +22,13 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def spam
+    post = Post.find(params[:id])
+    post.spam = true
+    post.save
+    redirect_to topic_user_thread_posts_path(@topic, @userThread)
+  end
+
   # POST /posts
   def create
     @posts = @userThread.posts.all

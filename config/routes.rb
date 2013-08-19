@@ -6,9 +6,15 @@ Forum::Application.routes.draw do
 
   resources :topics do 
     resources :user_threads do 
-      resources :posts
+      resources :posts do 
+        member do 
+          patch 'mark-as-spam' => 'posts#spam', as: 'spam'
+        end
+      end
     end
   end
+
+  get 'user' => 'user#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
