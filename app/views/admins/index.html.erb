@@ -1,6 +1,12 @@
 <h1> Admin-Bereich </h1>
 
-<table border = 1>
+<table>
+
+	<tr>
+
+		<td>
+
+<table id = "userTable" border = "1px">
 	<tr> <th> User-Email </th> <th> Löschen </th> </tr>
 
 	<% @users.each do |user| %>
@@ -11,15 +17,44 @@
 
 </table> 
 
- <table border = 1>
+	</td>
+
+	<td>
+
+ <table id = "spamTable" border = "1px">
  	<tr> <th> Spampost </th> <th> Spam ? </th> </tr>
 
  	<% @posts.each do |post| %>
 
  		<% if post.spam? %>
- 			<tr> <td> <%= post.title %> </td> <td> <%= link_to "Kein Spam", admins_nospam_path(post.id) %> </td> </tr> 
+ 			<tr> <td> <%= post.title %> </td> <td> <%= link_to "Kein Spam", admins_nospam_path(post.id), method: :patch %> </td> </tr> 
  			<% end %>
 
  		<% end %>
 
  	</table>
+
+ 	<td>
+ 		<table border = 1>
+ 			<tr> <th> Post </th> <th> User </th> <th> Datum </th> </tr>
+
+ 			<% @posts.each do |post| %>
+
+ 				<% if post.created_at > (Time.now - 2.days) %>
+
+ 				<tr> <td> <%= post.title %> </td> <td> <%= post.user.email %>  </td> <td> <%= post.created_at %> </td> </tr>
+
+ 				<% end %>
+
+ 			<%end%>
+
+
+ 		</table>
+
+ 	</td>
+
+ </td>
+
+</tr>
+
+</table>
