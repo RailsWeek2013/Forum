@@ -2,7 +2,7 @@
 
 	<div class ="postHeader">
   		<p class = "title"> <%= post.title %> </p> 
-  		<p class = "name"> <%= link_to post.user.email, show_user_path(post.user) %> </p>
+  		<p class = "name"> <%= link_to post.user.email, show_user_path(post.user),class: "headerLink" %> </p>
  	</div>
 
 	<div class = "postContent">
