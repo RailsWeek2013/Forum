@@ -1,5 +1,8 @@
 Forum::Application.routes.draw do
 
+  get "admins/index"
+  delete "admins/destroy/:id" => 'admins#destroy', as: :admins_destroy
+  patch "admins/nospam/:id" => 'admins#noSpam' , as: :admins_nospam
   devise_for :admins
   devise_for :users
   root 'topics#index'

@@ -34,6 +34,7 @@ class PostsController < ApplicationController
     @posts = @userThread.posts.all
     @post = @userThread.posts.new(post_params)
     @post.user = current_user
+    
 
       if @post.save
         redirect_to topic_user_thread_posts_path(@topic,@userThread), notice: 'Post was successfully created.'
