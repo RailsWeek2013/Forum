@@ -2,5 +2,9 @@
 	<p id= "headerText"> Header </p>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>	
-	<%= render partial: "layouts/login" %>	<%= render partial: "layouts/admin" %>
+
+	<ul id="menue">
+		<li><%= render partial: "layouts/login" %></li>
+		<li><%= render partial: "layouts/admin" %></li>
+	</ul>
 </div>

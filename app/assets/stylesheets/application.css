@@ -72,3 +72,16 @@
  	padding:0;
 
  }
+
+ #menue {
+ 	list-style: none;
+ 	height: 25px;
+ 	padding: 0px;
+ 	margin: 0px;
+ 	margin-left: 25px;
+ }
+
+ #menue li {
+ 	float: left;
+ 	padding-right: 10px;
+ }

@@ -1,4 +1,3 @@
-<div> <% if current_user.try(:admin?) %>
-		<%= link_to 'Admin' , admins_index_path, class: "headerLink" %>
-
-		<% end %>  </div>
+<% if current_user.try(:admin?) %>
+	<%= link_to 'Admin' , admins_index_path, class: "headerLink" %>
+<% end %>
