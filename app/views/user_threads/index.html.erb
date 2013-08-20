@@ -1,6 +1,6 @@
 <h1>Threads</h1>
 
-<table>	
+<table id="userThreadTable">	
 	<tr>
 		<th></th>
 		<th>Thread Name</th>
@@ -12,6 +12,7 @@
 	<%= render @user_threads %>
 </table>
 
+<br/>
 <% if user_signed_in? %>
 	<%= link_to 'New User thread', new_topic_user_thread_path %>
 <% end %>

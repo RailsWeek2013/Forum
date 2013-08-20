@@ -1,18 +1,17 @@
 <h1>Listing topics</h1>
 
+<table id="topicTable"> 
+      <tr> <th> </th> <th> Name </th>  <th> Threads </th> </tr>
 
     <% @topics.each do |topic| %>
 
-    <div>  <%= image_tag "ordner.png",class: "folder",size: "30x30" %>  <p class = "topic" > <%= link_to topic.name, "/topics/#{topic.id}/user_threads",method: :get %>  </p> </div>
+      <tr>
+        <td class = "topicTd"> <%= image_tag "ordner.png",class: "folder",size: "30x30" %> </td> <td class = "topicTd"td td class = "topicTd"> <p class = "topic" > <%= link_to topic.name, "/topics/#{topic.id}/user_threads",method: :get %>  </p> </td> <td class = "topicTd"> <%= topic.user_threads.all.count %> </td>
+      </tr>
       
-
-      <!-- <tr>
-        <td><%= topic.name %></td>
-        <td><%= link_to 'Show', topic %></td>
-        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr> -->
     <% end %>
+
+    </table>
 
 <br>
 

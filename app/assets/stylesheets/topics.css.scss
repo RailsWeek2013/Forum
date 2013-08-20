@@ -5,6 +5,8 @@
 
  .topic {
  	font-size:40px;
+ 	margin:0;
+ 	padding:0;
  }
 
 .folder {
@@ -15,3 +17,19 @@
 	margin-right:5px;
 }
 
+
+#topicTable {
+
+	border-collapse:collapse;
+	margin:0 auto;
+	box-shadow: 10px 10px 5px #888;
+
+}
+
+.topicTd {
+
+border:2px solid black;
+font-size:40px;
+text-align: center;
+
+}
