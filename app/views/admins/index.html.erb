@@ -53,7 +53,31 @@
 
  	</td>
 
- </td>
+ 	<td> 
+ 		<table id = "topicTable">
+ 			<tr> <th> Topic </th> <th> Löschen </th> </tr>
+
+ 			<%  @topic.each do |topic| %>
+
+ 				<tr> <td> <%= topic.name %> </td> <td> <%= link_to "Löschen" , topic_path(topic) , method: :delete %> </td> </tr>
+
+ 				<% end %>
+ 		</table>
+ 	</td>
+
+ 	<td> 
+ 		<table id = "threadTable">
+ 			<tr> <th> Thread </th> <th> Löschen </th> </tr>
+
+ 			<%  @userThread.each do |thread| %>
+
+ 				<tr> <td> <%= thread.title %> </td> <td> <%= link_to "Löschen" , topic_user_thread_path(thread.topic,thread) , method: :delete %> </td> </tr>
+
+ 				<% end %>
+ 		</table>
+ 	</td>
+
+		
 
 </tr>
 
