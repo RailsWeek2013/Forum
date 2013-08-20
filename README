@@ -18,3 +18,16 @@ Optional Features
 
 Posts in Seiten anzeigen ✓
 Adminbereich ✓
+
+
+used gems:
+
+Devise
+https://github.com/plataformatec/devise
+
+will_paginate
+https://github.com/mislav/will_paginate
+
+
+
+Copyright 2013 Moritz Münch, Phillip Trusheim
