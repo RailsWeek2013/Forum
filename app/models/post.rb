@@ -10,4 +10,7 @@ class Post < ActiveRecord::Base
 		presence: true,
 		length: { minimum: 1 }
 
+
+	self.per_page = 10
+
 end

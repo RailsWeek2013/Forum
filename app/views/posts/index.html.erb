@@ -1,7 +1,11 @@
 <h1><%= @userThread.title %></h1>
 
 <div id="containerAll" >
+
+	<%= will_paginate %>
 	<%= render @posts %>
+	<%= will_paginate %>
+
 	<%= render partial: "addPost" %>
 </div>
 

@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = @userThread.posts.all
+    @posts = @userThread.posts.page(params[:page])
     @post = @userThread.posts.new
   end
 
