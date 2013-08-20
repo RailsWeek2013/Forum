@@ -28,6 +28,9 @@ https://github.com/plataformatec/devise
 will_paginate
 https://github.com/mislav/will_paginate
 
+bootstrap-sass
+https://github.com/thomas-mcdonald/bootstrap-sass
+documentation: http://twbs.github.io/bootstrap/2.3.2/index.html
 
 
 Copyright 2013 Moritz Münch, Phillip Trusheim
