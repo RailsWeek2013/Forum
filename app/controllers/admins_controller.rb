@@ -1,16 +1,11 @@
 class AdminsController < ApplicationController
 
+  before_action :admin_check
 	before_action :setUsers , :setPosts , :setTopic , :setThread
 
   layout "admin"
 
   def index
-  	if current_user.try(:admin?)
-
-  	else
-  		redirect_to root_path
-  	end
-
   end
 
   def destroy
@@ -67,6 +62,12 @@ class AdminsController < ApplicationController
 
   def setThread
     @userThread = UserThread.all
+  end
+
+  def admin_check
+    unless current_user.try(:admin?)
+      redirect_to root_path
+    end
   end
 
 end
