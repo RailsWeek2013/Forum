@@ -1,7 +1,7 @@
 class UserThread < ActiveRecord::Base
 
 	belongs_to :topic
-	has_many :posts , dependent: :delete_all
+	has_many :posts , dependent: :destroy
 	belongs_to :user
 
 	validates :title, 

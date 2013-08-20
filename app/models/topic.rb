@@ -1,6 +1,6 @@
 class Topic < ActiveRecord::Base
 
-	has_many :user_threads , dependent: :delete_all
+	has_many :user_threads , dependent: :destroy
 
 	validates :name, 
 		presence: true, 
