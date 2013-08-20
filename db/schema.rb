@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130820090348) do
+ActiveRecord::Schema.define(version: 20130820110010) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20130820090348) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",                        null: false
-    t.integer  "page"
   end
 
   add_index "posts", ["user_thread_id"], name: "index_posts_on_user_thread_id"
