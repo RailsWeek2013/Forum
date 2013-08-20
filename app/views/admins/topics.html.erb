@@ -10,7 +10,7 @@
 
   <%  @topic.each do |topic| %>
       <tr>
-        <td> <%= topic.name %> </td>
+        <td> <%= link_to topic.name, topic_user_threads_path(topic) %> </td>
         <td> <%= link_to "Löschen" , topic_path(topic) , method: :delete %> </td>
       </tr>
   <% end %>
