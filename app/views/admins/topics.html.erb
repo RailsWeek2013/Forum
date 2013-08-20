@@ -1,0 +1,17 @@
+<h1>Topics</h1>
+
+<%= render partial: "menue" %>
+
+<table id = "topicTable">
+  <tr>
+    <th>Topic</th>
+    <th>Löschen</th>
+  </tr>
+
+  <%  @topic.each do |topic| %>
+      <tr>
+        <td> <%= topic.name %> </td>
+        <td> <%= link_to "Löschen" , topic_path(topic) , method: :delete %> </td>
+      </tr>
+  <% end %>
+</table>
