@@ -9,7 +9,7 @@
   <% @posts.each do |post| %>
       <% if post.created_at > (Time.now - 2.days) %>
           <tr>
-            <td> <%= link_to post.title, topic_user_thread_posts_path(post.user_thread.topic, post.user_thread, page: getPage(post), anchor:"post#{result.id}")%> </td>
+            <td> <%= link_to post.title, topic_user_thread_posts_path(post.user_thread.topic, post.user_thread, page: getPage(post), anchor:"post#{post.id}")%> </td>
             <td> <%= link_to post.user.email, show_user_path(post.user) %> </td>
             <td> <%= post.created_at %> </td>
           </tr>
