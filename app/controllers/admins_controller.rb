@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 
-	before_action :setUsers , :setPosts , :setTopic
+	before_action :setUsers , :setPosts , :setTopic , :setThread
 
   def index
   	if current_user.try(:admin?)
@@ -41,6 +41,10 @@ class AdminsController < ApplicationController
 
   def setTopic
     @topic = Topic.all
+  end
+
+  def setThread
+    @userThread = UserThread.all
   end
 
 

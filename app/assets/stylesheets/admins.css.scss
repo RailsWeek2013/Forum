@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#userTable, #spamTable, #postTable {
+#userTable, #spamTable, #postTable , #threadTable , #topicTable {
 	
 	border: 2px solid black;
 	border-collapse:collapse;
@@ -23,7 +23,7 @@ th {
 	border: 2px solid black;
 }
 
-#userTable td, #spamTable td, #postTable td {
+#userTable td, #spamTable td, #postTable td , #threadTable td , #topicTable td {
 
 	border: 2px solid black;
 
