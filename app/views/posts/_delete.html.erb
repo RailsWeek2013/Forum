@@ -1,0 +1,3 @@
+<% if current_user.try(:admin?) %> 
+<%= link_to "Löschen" , topic_user_thread_post_path(post.user_thread.topic,post.user_thread,post), method: "delete" %>
+<% end %>

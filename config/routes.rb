@@ -16,6 +16,8 @@ Forum::Application.routes.draw do
           patch 'mark-as-spam' => 'posts#spam', as: 'spam'
           patch 'rate-up' => 'posts#rate_up', as: 'rate_up'
           patch 'rate-down' => 'posts#rate_down', as: 'rate_down'
+
+
         end
       end
     end
