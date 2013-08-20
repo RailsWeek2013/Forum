@@ -1,21 +1,18 @@
 <h1>Threads</h1>
 
-
-    <% @user_threads.each do |user_thread| %>
-
-      <div>  <%= image_tag "ordner.png",class: "folder",size: "30x30" %>  <p class = "topic" > <%= link_to user_thread.title , topic_user_thread_posts_path(@topic,user_thread)  %>  </p> </div> 
-       <!-- <td><%= user_thread.title %></td>
-        <td><%= user_thread.topic.name %></td>
-        
-        <td><%= link_to 'Show', topic_user_thread_path( user_thread.topic, user_thread) %></td>
-        <td><%= link_to 'Edit', edit_topic_user_thread_path(user_thread.topic, user_thread) %></td>
-        <td><%= link_to 'Destroy', topic_user_thread_path(user_thread.topic, user_thread), method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-    <% end %>
-
-<br>
-
+<table>	
+	<tr>
+		<th></th>
+		<th>Thread Name</th>
+		<th>Neuster Post</th>
+		<th>erstellt am</th>
+		<th>Username</th>
+		<th>Anzahl Posts</th>
+	</tr>
+	<%= render @user_threads %>
+</table>
 
 <% if user_signed_in? %>
-<%= link_to 'New User thread', new_topic_user_thread_path %>
+	<%= link_to 'New User thread', new_topic_user_thread_path %>
 <% end %>
 <%= link_to 'Back', root_path %>

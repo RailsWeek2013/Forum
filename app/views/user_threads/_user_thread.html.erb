@@ -1,0 +1,21 @@
+<% p = user_thread.posts.order("created_at").last %>
+
+<tr>
+	<td>
+		<%= image_tag "ordner.png",class: "folder",size: "30x30" %>  
+	</td>
+	<td>
+		<%= link_to user_thread.title , topic_user_thread_posts_path(@topic, user_thread)  %>  
+	</td>
+	<% unless p.nil? %>
+		<td><%= link_to p.title, topic_user_thread_posts_path(@topic, user_thread, anchor: "post#{p.id}") %></td>
+		<td><%= p.created_at %></td>
+		<td><%= p.user.name %></td>
+        <td><%= user_thread.posts.count %></td>
+	<% else %>
+		<td>-</td>
+		<td>-</td>
+		<td>-</td>
+		<td>-</td>
+	<% end %>
+</tr>
