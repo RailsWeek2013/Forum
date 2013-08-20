@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= @tile ||= "Forum - Admin" %></title>
+	<%= stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+    <%= render partial: "admins/menue" %>
+	<div id="mainContent">
+		<%= yield %>
+	</div>
+</div>
+</body>
+</html>

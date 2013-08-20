@@ -2,6 +2,8 @@ class AdminsController < ApplicationController
 
 	before_action :setUsers , :setPosts , :setTopic , :setThread
 
+  layout "admin"
+
   def index
   	if current_user.try(:admin?)
 
