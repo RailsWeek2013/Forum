@@ -1,0 +1,20 @@
+<h1>Neuste Posts</h1>
+
+<%= render partial: "menue" %>
+
+<table id = "postTable">
+  <tr>
+    <th>Post</th>
+    <th>User</th>
+    <th>Datum</th>
+  </tr>
+  <% @posts.each do |post| %>
+      <% if post.created_at > (Time.now - 2.days) %>
+          <tr>
+            <td> <%= post.title %> </td>
+            <td> <%= post.user.email %> </td>
+            <td> <%= post.created_at %> </td>
+          </tr>
+      <% end %>
+  <%end%>
+</table>

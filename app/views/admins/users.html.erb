@@ -1,0 +1,16 @@
+<h1>Users</h1>
+
+<%= render partial: "menue" %>
+
+<table id = "userTable">
+  <tr>
+    <th>User-Email</th>
+    <th>Löschen</th>
+  </tr>
+  <% @users.each do |user| %>
+      <tr>
+        <td> <%= user.email %> </td>
+        <td> <%= link_to "Löschen",admins_destroy_path(user.id), method: :delete %> </td>
+      </tr>
+  <% end %>
+</table>

@@ -29,6 +29,26 @@ class AdminsController < ApplicationController
   	render action: :index
   end
 
+  def new_posts
+
+  end
+
+  def spam_post
+
+  end
+
+  def threads
+
+  end
+
+  def topics
+
+  end
+
+  def users
+
+  end
+
   private 
 
   def setUsers
@@ -46,6 +66,5 @@ class AdminsController < ApplicationController
   def setThread
     @userThread = UserThread.all
   end
-
 
 end

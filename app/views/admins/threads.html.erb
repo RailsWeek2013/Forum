@@ -1,0 +1,17 @@
+<h1>Threads</h1>
+
+<%= render partial: "menue" %>
+
+<table id = "threadTable">
+  <tr>
+    <th>Thread</th>
+    <th>Löschen</th>
+  </tr>
+
+  <%  @userThread.each do |thread| %>
+      <tr>
+        <td> <%= thread.title %> </td>
+        <td> <%= link_to "Löschen" , topic_user_thread_path(thread.topic,thread) , method: :delete %> </td>
+      </tr>
+  <% end %>
+</table>
