@@ -8,7 +8,7 @@
 		<%= link_to user_thread.title , topic_user_thread_posts_path(@topic, user_thread)  %>  
 	</td>
 	<% unless p.nil? %>
-		<td class = "userThreadTd"><%= link_to p.title, topic_user_thread_posts_path(@topic, user_thread, anchor: "post#{p.id}") %></td>
+		<td class = "userThreadTd"><%= link_to p.title, topic_user_thread_posts_path(@topic, user_thread, page: getPage(p), anchor: "post#{p.id}") %></td>
 		<td class = "userThreadTd"><%= p.created_at %></td>
 		<td class = "userThreadTd"><%= p.user.name %></td>
         <td class = "userThreadTd"><%= user_thread.posts.count %></td>
