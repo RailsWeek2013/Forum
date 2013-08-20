@@ -34,6 +34,7 @@ class PostsController < ApplicationController
     @posts = @userThread.posts.all
     @post = @userThread.posts.new(post_params)
     @post.user = current_user
+    @post.page = ((@userThread.posts.all.count/10)+1).to_i
     
 
       if @post.save

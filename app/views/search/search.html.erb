@@ -2,13 +2,13 @@
 
 <h2> Im Titel: </h2>
 <% @results.each do |result| %>
-	<p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,anchor:"post#{result.id}")%> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
+	<p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,result.page,anchor:"post#{result.id}",page: result.page)%> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
 <% end %>
 
 <h2> Im Text: </h2>
 
 <% @contentResults.each do |result| %>
-	<p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,anchor:"post#{result.id}")%> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
+	<p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,result.page,anchor:"post#{result.id}",page: result.page)%> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
 <% end %>
 
 <%= link_to "Back", root_path %>
