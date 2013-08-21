@@ -1,4 +1,4 @@
-<%= form_for(@user, url: user_path) do |f| %>
+<%= form_for @user, url: user_path, class: 'form-horizontal' do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,15 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br>
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="control-group">
+      <%= f.label :name, class: 'control-label', for: 'input-lable' %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :lastname, class: 'control-label', for: 'input-lable' %>
+      <div class="controls">
+        <%= f.text_field :lastname %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :gender, class: 'control-label', for: 'input-lable' %>
+      <div class="controls">
+        <%= f.text_field :gender %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :signature, class: 'control-label', for: 'input-lable' %>
+      <div class="controls">
+        <%= f.text_area :signature %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit class: 'btn btn-success' %>
+        <%= link_to "Abbrechen",show_current_user_path, class: 'btn btn-danger' %>
+      </div>
+    </div>
+
 <% end %>
