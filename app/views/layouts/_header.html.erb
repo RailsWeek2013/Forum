@@ -1,11 +1,16 @@
 <div id = "mainHeader">
-	<p id= "headerText"> Header </p>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>	
+  <!-- http://guides.rubyonrails.org/action_controller_overview.html -->
+	<% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
+    <!-- Copy end -->
 
-	<ul id="menue">
-		<li><%= render partial: "layouts/login" %></li>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><%= render partial: "layouts/login" %></li>
 		<li><%= render partial: "layouts/admin" %></li>
 		<li><%= render partial: "layouts/search"%></li>
-	</ul>
+    </ul>
+  </div>
 </div>

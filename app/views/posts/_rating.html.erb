@@ -1,3 +1,7 @@
 <%= post.rating %>
-<%= link_to "Rate up", rate_up_topic_user_thread_post_path(@topic, @userThread, post), method: :patch %>
-<%= link_to "Rate down", rate_down_topic_user_thread_post_path(@topic, @userThread, post), method: :patch %>
+<%= link_to rate_up_topic_user_thread_post_path(@topic, @userThread, post), method: :patch  do %>
+	<i class="icon-thumbs-up"> </i>
+<% end %>
+<%= link_to  rate_down_topic_user_thread_post_path(@topic, @userThread, post), method: :patch do %>
+<i class="icon-thumbs-down"> </i>
+<% end %>
