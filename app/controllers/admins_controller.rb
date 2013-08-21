@@ -50,6 +50,10 @@ class AdminsController < ApplicationController
       @topic = Topic.find(params[:id])
   end
 
+  def thread_edit
+    @thread = UserThread.find(params[:id])
+  end
+
   private 
 
   def setUsers
