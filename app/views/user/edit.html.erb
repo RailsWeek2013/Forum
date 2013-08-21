@@ -25,6 +25,13 @@
       </div>
     </div>
     <div class="control-group">
+      <%= f.label :birthday, class: 'control-label', for: 'input-lable' %>
+      <div class="controls">
+        <% day = @user.birthday || Date.today %>
+        <%= select_date day, prefix: :birth_day, order: [:day, :month, :year], start_year: Time.now.year - 100, end_year: Time.now.year %>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :gender, class: 'control-label', for: 'input-lable' %>
       <div class="controls">
         <%= f.select :gender, [['M'], ['W']] %>
@@ -43,5 +50,4 @@
         <%= link_to "Abbrechen",show_current_user_path, class: 'btn btn-danger' %>
       </div>
     </div>
-
 <% end %>
