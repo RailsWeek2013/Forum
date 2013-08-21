@@ -6,10 +6,11 @@
  	</div>
  	<hr id="line">
 	<div>
-		<p> <%= post.content %> </p>
+		 <%= post.content %> 
 	</div>
-
-	<%= render partial: "spam", locals: {post: post} %>
-	<%= render partial: "rating", locals: {post: post} %>
+	<hr id="line">
+	 <%= post.user.signature %> 
+	 <%= render partial: "spam", locals: {post: post} %>
+	 <%= render partial: "rating", locals: {post: post} %>
 	<%= render partial: "delete", locals: {post: post} %>
 </div>
