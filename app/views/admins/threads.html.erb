@@ -10,6 +10,11 @@
       <tr>
         <td> <%= link_to thread.title, topic_user_thread_posts_path(thread.topic, thread) %> </td>
         <td> <%= link_to "Löschen" , topic_user_thread_path(thread.topic,thread) , method: :delete %> </td>
+        <td>
+          <%= link_to admin_edit_thread_path(thread) do %>
+              <i class="icon-pencil"></i>
+          <% end %>
+        </td>
       </tr>
   <% end %>
 </table>
