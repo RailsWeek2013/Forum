@@ -39,6 +39,7 @@ class PostsController < ApplicationController
       if @post.save
         redirect_to topic_user_thread_posts_path(@topic,@userThread), notice: 'Post was successfully created.'
       else
+        @posts = @userThread.posts.page(params[:page])
         render action: 'index'
       end
   end
