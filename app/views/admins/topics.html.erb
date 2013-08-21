@@ -4,12 +4,18 @@
   <tr>
     <th>Topic</th>
     <th>Löschen</th>
+    <th></th>
   </tr>
 
   <%  @topic.each do |topic| %>
       <tr>
         <td> <%= link_to topic.name, topic_user_threads_path(topic) %> </td>
         <td> <%= link_to "Löschen" , topic_path(topic) , method: :delete %> </td>
+        <td>
+            <%= link_to admin_edit_topic_path(topic) do %>
+                <i class="icon-pencil"></i>
+            <% end %>
+        </td>
       </tr>
   <% end %>
 </table>

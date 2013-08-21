@@ -1,0 +1,28 @@
+<h1>Edit-Thread</h1>
+
+<%= form_for [@thread.topic, @thread], class: 'form-horizontal' do |f| %>
+    <% if @thread.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@thread.errors.count, "error") %> prohibited this topic from being saved:</h2>
+
+          <ul>
+            <% @thread.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :title, class: 'control-label', for: 'input-lable' %>
+      <div class="controls">
+        <%= f.text_field :title %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit class: 'btn' %>
+      </div>
+    </div>
+<% end %>
