@@ -1,6 +1,7 @@
+
 <h1>Listing topics</h1>
 
-<table id="topicTable"> 
+<table class="table table-bordered table-striped"> 
       <tr> <th> </th> <th> Name </th>  <th> Threads </th> </tr>
 
     <% @topics.each do |topic| %>
@@ -13,10 +14,11 @@
 
     </table>
 
-<br>
 
 	<% if current_user.try(:admin?) %>
 
-	<%= link_to 'New Topic', new_topic_path %>
+	<%= link_to 'New Topic', new_topic_path , class: "btn btn-success"%>
+
 
 	<% end %>
+

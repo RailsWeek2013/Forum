@@ -1,11 +1,11 @@
-<div class = "container" id= <%= "post" + post.id.to_s %> >
+<div class = "well" id= <%= "post" + post.id.to_s %> >
 
-	<div class ="postHeader">
-  		<p class = "title"> <%= post.title %> </p> 
-  		<p class = "name"> <%= link_to post.user.email, show_user_path(post.user),class: "headerLink" %> </p>
+	<div>
+  		 <%= post.title %> 
+  		 <%= link_to post.user.email, show_user_path(post.user),class: "pull-right" %> 
  	</div>
-
-	<div class = "postContent">
+ 	<hr id="line">
+	<div>
 		<p> <%= post.content %> </p>
 	</div>
 
