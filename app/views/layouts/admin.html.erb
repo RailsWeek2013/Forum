@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><%= @tile ||= "Forum - Admin" %></title>
+	<title>
+      <% if @title.nil? %>
+        <%= "Admin" %>
+      <% else %>
+        <%= "Admin - #{@title}" %>
+      <% end %>
+    </title>
 	<%= stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
