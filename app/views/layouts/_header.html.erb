@@ -14,7 +14,9 @@
         <% if user_signed_in? %>
             <li><%= link_to 'User Profil', show_current_user_path %></li>
         <% end %>
+      </ul>
+      <ul class="nav pull-right">
 		<li><%= render partial: "layouts/search"%></li>
-    </ul>
+      </ul>
   </div>
 </div>
