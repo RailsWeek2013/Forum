@@ -8,8 +8,12 @@
     <div class="navbar">
   <div class="navbar-inner">
     <ul class="nav">
+      <li><%= link_to "Home", root_path %></li>
       <li><%= render partial: "layouts/login" %></li>
 		<li><%= render partial: "layouts/admin" %></li>
+        <% if user_signed_in? %>
+            <li><%= link_to 'User Profil', show_current_user_path %></li>
+        <% end %>
 		<li><%= render partial: "layouts/search"%></li>
     </ul>
   </div>
