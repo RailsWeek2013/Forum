@@ -10,6 +10,7 @@ Forum::Application.routes.draw do
   get "admins/threads" => 'admins#threads', as: :admin_threads
   get "admins/topics" => 'admins#topics', as: :admin_topics
   get "admins/users" => 'admins#users', as: :admin_users
+  get "admins/topics/:id/edit" => 'admins#topic_edit', as: :admin_edit_topic
 
 
   devise_for :admins

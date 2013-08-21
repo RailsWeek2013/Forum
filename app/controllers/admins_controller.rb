@@ -46,6 +46,10 @@ class AdminsController < ApplicationController
 
   end
 
+  def topic_edit
+      @topic = Topic.find(params[:id])
+  end
+
   private 
 
   def setUsers
