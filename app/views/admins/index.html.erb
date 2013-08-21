@@ -1,1 +1,30 @@
 <h1> Admin-Bereich </h1>
+
+<table id = "statsTable" class="table table-hover">
+  <tr>
+    <td>Registrierte User</td>
+    <td><%= User.all.count %></td>
+  </tr>
+  <tr>
+    <td>In den letzten 24h registrierte User</td>
+    <td><%= User.where("created_at > :day", { :day => 1.day.ago } ).count %></td>
+  </tr>
+  <tr>
+    <td>Anzahl Posts</td>
+    <td><%= Post.all.count %></td>
+  </tr>
+  <tr>
+    <td>Anzahl spam Posts</td>
+    <td><%= Post.where(:spam => true).count %></td>
+  </tr>
+  <tr>
+    <td>Anzahl Topics</td>
+    <td><%= Topic.all.count %></td>
+  </tr>
+  <tr>
+    <td>Anzahl Threads</td>
+    <td><%= UserThread.all.count %></td>
+  </tr>
+
+
+</table>
