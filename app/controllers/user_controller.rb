@@ -23,8 +23,12 @@ class UserController < ApplicationController
 
 	def update
 		@user = current_user
-		
-		if @user.update(user_params)
+
+    p = date_params
+    para = user_params
+    para[:birthday] = Date.new(p[:year].to_i, p[:month].to_i, p[:day].to_i)
+
+		if @user.update(para)
         	redirect_to show_current_user_path, notice: 'Profil erfolgreich geändert.'
       	else
         	render action: 'edit'
@@ -35,6 +39,8 @@ class UserController < ApplicationController
 	private 
 		def user_params
 	     	params.require(:user).permit(:name, :lastname, :gender, :signature)
-	    end
-
+    end
+    def date_params
+      params.require(:birth_day).permit(:year, :month, :day)
+    end
 end
