@@ -1,4 +1,4 @@
-<%= form_for(@topic) do |f| %>
+<%= form_for @topic, class: 'form-horizontal' do |f| %>
   <% if @topic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
@@ -11,11 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, class: 'control-label', for: 'input-lable' %>
+    <div class="controls">
+        <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit class: 'btn' %>
+      </div>
+    </div>
 <% end %>
