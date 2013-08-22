@@ -14,8 +14,8 @@ class AdminsController < ApplicationController
     else
       flash.now[:alert] = "Admin kann nicht geloescht werden"
     end
-  	render action: :index
 
+  	redirect_to action: 'users'
   end
 
   def noSpam

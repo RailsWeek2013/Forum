@@ -37,7 +37,7 @@ class UserThreadsController < ApplicationController
   # PATCH/PUT /user_threads/1
   def update
       if @user_thread.update(user_thread_params)
-        redirect_to [@topic, @user_thread], notice: 'User thread was successfully updated.'
+        redirect_to action: 'index', notice: 'User thread was successfully updated.'
       else
         render action: 'edit'
       end
