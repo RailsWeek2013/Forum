@@ -1,42 +1,44 @@
 Forum::Application.routes.draw do
 
-  get "search" => "search#search"
-  get "search/search" 
-  get "admins/index"
-  delete "admins/destroy/:id" => 'admins#destroy', as: :admins_destroy
-  patch "admins/nospam/:id" => 'admins#noSpam' , as: :admins_nospam
-  get "admins/new-posts" => 'admins#new_posts', as: :admin_new_posts
-  get "admins/spam-posts" => 'admins#spam_post', as: :admin_spam_posts
-  get "admins/threads" => 'admins#threads', as: :admin_threads
-  get "admins/topics" => 'admins#topics', as: :admin_topics
-  get "admins/users" => 'admins#users', as: :admin_users
-  get "admins/topics/:id/edit" => 'admins#topic_edit', as: :admin_edit_topic
-  get "admins/thread/:id/edit" => 'admins#thread_edit', as: :admin_edit_thread
+  root   'topics#index'
 
 
-  devise_for :admins
   devise_for :users
-  root 'topics#index'
+
 
   resources :topics, except: [:show, :edit] do
     resources :user_threads, except: [:show, :edit] do
       resources :posts, except: [:show, :edit] do
         member do 
-          patch 'mark-as-spam' => 'posts#spam', as: 'spam'
-          patch 'rate-up' => 'posts#rate_up', as: 'rate_up'
-          patch 'rate-down' => 'posts#rate_down', as: 'rate_down'
-
-
+          patch 'mark-as-spam'  => 'posts#spam',      as: 'spam'
+          patch 'rate-up'       => 'posts#rate_up',   as: 'rate_up'
+          patch 'rate-down'     => 'posts#rate_down', as: 'rate_down'
         end
       end
     end
   end
 
-  get 'user' => 'user#show_current_user', as: 'show_current_user'
-  get 'user/edit' => 'user#edit', as: 'edit_user'
-  patch 'user' => 'user#update'
-  put 'user' => 'user#update'
-  get 'user/:id' => 'user#show', as: 'show_user'
+
+  get     "search"                  => 'search#search'
+
+
+  get     "admin/index"            => 'admins#index',        as: :admins_index
+  delete  "admin/destroy/:id"      => 'admins#destroy',      as: :admins_destroy
+  patch   "admin/nospam/:id"       => 'admins#noSpam' ,      as: :admins_nospam
+  get     "admin/new-posts"        => 'admins#new_posts',    as: :admin_new_posts
+  get     "admin/spam-posts"       => 'admins#spam_post',    as: :admin_spam_posts
+  get     "admin/threads"          => 'admins#threads',      as: :admin_threads
+  get     "admin/topics"           => 'admins#topics',       as: :admin_topics
+  get     "admin/users"            => 'admins#users',        as: :admin_users
+  get     "admin/topics/:id/edit"  => 'admins#topic_edit',   as: :admin_edit_topic
+  get     "admin/thread/:id/edit"  => 'admins#thread_edit',  as: :admin_edit_thread
+
+
+  get   "user"        => 'user#show_current_user',  as: 'show_current_user'
+  get   "user/edit"   => 'user#edit',               as: 'edit_user'
+  patch "user"        => 'user#update'
+  put   "user"        => 'user#update'
+  get   "user/:id"    => 'user#show',               as: 'show_user'
 
   #match ':rest' => 'application#notfound', via: :all
 
