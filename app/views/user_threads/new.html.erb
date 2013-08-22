@@ -1,3 +1,29 @@
 <h1>Neuen Thread erstellen</h1>
 
-<%= render 'form' %>
+<%= form_for([@user_thread.topic, @user_thread], class: 'form-horizontal') do |f| %>
+    <% if @user_thread.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user_thread.errors.count, "error") %> prohibited this user_thread from being saved:</h2>
+
+          <ul>
+            <% @user_thread.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :title, class: 'control-label', for: 'input-lable'%>
+      <div class="controls">
+        <%= f.text_field :title %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit class: 'btn btn-success' %>
+        <%= link_to 'Abbrechen', topic_user_threads_path, class: 'btn btn-danger' %>
+      </div>
+    </div>
+<% end %>
+
