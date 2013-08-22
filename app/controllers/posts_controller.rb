@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post_topic
   before_action :set_post_user_thread
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :userCheck
 
   # GET /posts
   def index
@@ -95,5 +96,13 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :content, :spam, :user_thread_id, :rating)
+    end
+
+    def userCheck
+      unless params[:action] == "index"
+        unless user_signed_in?
+          redirect_to action: 'index'
+        end
+      end
     end
 end

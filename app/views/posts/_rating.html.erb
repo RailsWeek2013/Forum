@@ -1,7 +1,9 @@
+<% if user_signed_in? %>
 <p class="text-success pull-right"> <%= post.rating %> </p>
 <%= link_to rate_up_topic_user_thread_post_path(@topic, @userThread, post), method: :patch  do %>
 	<i class="icon-thumbs-up pull-right"> </i>
 <% end %>
 <%= link_to  rate_down_topic_user_thread_post_path(@topic, @userThread, post), method: :patch do %>
 <i class="icon-thumbs-down pull-right"> </i>
+<% end %>
 <% end %>

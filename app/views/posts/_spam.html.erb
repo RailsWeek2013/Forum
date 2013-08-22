@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <% unless post.spam %>
 	<%= link_to spam_topic_user_thread_post_path(@topic, @userThread, post), method: :patch  do %>
 
@@ -6,4 +7,4 @@
 <% else %>
 	<span class="label label-important">Post wurde als Spam gekennzeichnet</span>
 <% end %>
- 
+ <% end %>
