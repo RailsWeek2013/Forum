@@ -1,15 +1,22 @@
 <div class = "well" id= <%= "post" + post.id.to_s %> >
 
 	<div>
+
   		 <h4 class="pull-left"><%= post.title %></h4>
+  		 <% unless post.user.nil? %>
   		 <%= link_to post.user.email, show_user_path(post.user),class: "pull-right" %>
+  		 <% else %>
+  		 <p class="pull-right"> geloeschter User </p>
+  		 <% end %>
  	</div>
  	<hr id="line" style="clear:both">
 	<div>
 		 <%= post.content %> 
 	</div>
 	<hr id="line">
+	<% unless post.user.nil? %>
 	 <%= post.user.signature %> 
+	 <% end %>
 	 <%= render partial: "spam", locals: {post: post} %>
 	 <%= render partial: "rating", locals: {post: post} %>
 	<%= render partial: "delete", locals: {post: post} %>
