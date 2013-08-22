@@ -1,4 +1,6 @@
 <%= form_tag("/search",method: :get, class: "navbar-form") do %>
-    <%= text_field_tag(:search_field) %>
-    <%= submit_tag("Search") %>
+    <div class="input-append">
+        <%= text_field_tag :search_field, nil, class: 'span2' %>
+        <%= submit_tag "Search", class: 'btn' %>
+    </div>
 <% end %>
