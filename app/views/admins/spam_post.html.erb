@@ -8,11 +8,9 @@
   </tr>
 
   <% @posts.each do |post| %>
-      <% if post.spam? %>
-          <tr>
-            <td> <%= post.title %> </td>
-            <td> <%= link_to "Kein Spam", admins_nospam_path(post.id), method: :patch %> </td>
-          </tr>
-      <% end %>
+      <tr>
+        <td> <%= post.title %> </td>
+        <td> <%= link_to "Kein Spam", admins_nospam_path(post.id), method: :patch %> </td>
+      </tr>
   <% end %>
 </table>

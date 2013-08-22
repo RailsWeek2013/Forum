@@ -7,13 +7,14 @@
     <th>User</th>
     <th>Datum</th>
   </tr>
-  <% @posts.each do |post| %>
-      <% if post.created_at > (Time.now - 2.days) %>
-          <tr>
-            <td> <%= link_to post.title, topic_user_thread_posts_path(post.user_thread.topic, post.user_thread, page: getPage(post), anchor:"post#{post.id}")%> </td>
-            <td> <%= link_to post.user.email, show_user_path(post.user) %> </td>
-            <td> <%= post.created_at %> </td>
-          </tr>
-      <% end %>
+  <% @newPosts.each do |post| %>
+      <% topic = post.user_thread.topic %>
+      <% user_thread = post.user_thread %>
+      <% user = post.user %>
+      <tr>
+        <td> <%= link_to post.title, topic_user_thread_posts_path(topic, user_thread, page: getPage(post), anchor:"post#{post.id}")%> </td>
+        <td> <%= link_to user.email, show_user_path(user) %> </td>
+        <td> <%= post.created_at %> </td>
+      </tr>
   <%end%>
 </table>
