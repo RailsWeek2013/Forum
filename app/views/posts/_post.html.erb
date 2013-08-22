@@ -1,10 +1,10 @@
 <div class = "well" id= <%= "post" + post.id.to_s %> >
 
 	<div>
-  		 <%= post.title %> 
-  		 <%= link_to post.user.email, show_user_path(post.user),class: "pull-right" %> 
+  		 <h4 class="pull-left"><%= post.title %></h4>
+  		 <%= link_to post.user.email, show_user_path(post.user),class: "pull-right" %>
  	</div>
- 	<hr id="line">
+ 	<hr id="line" style="clear:both">
 	<div>
 		 <%= post.content %> 
 	</div>
