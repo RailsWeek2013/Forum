@@ -18,9 +18,9 @@ Forum::Application.routes.draw do
   devise_for :users
   root 'topics#index'
 
-  resources :topics do 
-    resources :user_threads do 
-      resources :posts do 
+  resources :topics, except: [:show, :edit] do
+    resources :user_threads, except: [:show, :edit] do
+      resources :posts, except: [:show, :edit] do
         member do 
           patch 'mark-as-spam' => 'posts#spam', as: 'spam'
           patch 'rate-up' => 'posts#rate_up', as: 'rate_up'
@@ -37,6 +37,8 @@ Forum::Application.routes.draw do
   patch 'user' => 'user#update'
   put 'user' => 'user#update'
   get 'user/:id' => 'user#show', as: 'show_user'
+
+  #match ':rest' => 'application#notfound', via: :all
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
