@@ -33,7 +33,7 @@ class TopicsController < ApplicationController
   # PATCH/PUT /topics/1
   def update
       if @topic.update(topic_params)
-        redirect_to action: 'index'
+        redirect_to action: 'index', notice: 'Topic was successfully updated.'
       else
         render action: 'edit'
       end

@@ -14,15 +14,15 @@ class AdminsController < ApplicationController
     else
       flash.now[:alert] = "Admin kann nicht geloescht werden"
     end
-  	render action: :index
 
+  	redirect_to action: 'users'
   end
 
   def noSpam
   	post = Post.find(params[:id])
   	post.spam = false
   	post.save
-  	render action: :index
+    redirect_to action: 'spam_post'
   end
 
   def new_posts
