@@ -22,7 +22,7 @@ class AdminsController < ApplicationController
   	post = Post.find(params[:id])
   	post.spam = false
   	post.save
-  	render action: :index
+    redirect_to action: 'spam_post'
   end
 
   def new_posts
