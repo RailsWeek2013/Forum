@@ -56,10 +56,11 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    if current_user.try(:admins?)
+    if current_user.try(:admin?)
       @post.destroy
-      redirect_to topic_user_thread_posts_url
     end
+
+    redirect_to topic_user_thread_posts_url
   end
 
   def rate_up
