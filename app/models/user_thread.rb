@@ -6,7 +6,8 @@ class UserThread < ActiveRecord::Base
 
 	validates :title, 
 		presence: true, 
-		length: { minimum: 4 }
+		length: { minimum: 4 },
+    uniqueness: { scope: :title }
 
 	validates :topic_id,
 		presence: true

@@ -50,7 +50,7 @@ class AdminsController < ApplicationController
   end
 
   def thread_edit
-    @thread = UserThread.find(params[:id])
+    @user_thread = UserThread.find(params[:id])
   end
 
 

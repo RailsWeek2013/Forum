@@ -1,13 +1,13 @@
 <% @title = "Thread - Edit" %>
 <h1>Edit-Thread</h1>
 
-<%= form_for [@thread.topic, @thread], class: 'form-horizontal' do |f| %>
-    <% if @thread.errors.any? %>
+<%= form_for [@user_thread.topic, @user_thread], class: 'form-horizontal' do |f| %>
+    <% if @user_thread.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@thread.errors.count, "error") %> prohibited this topic from being saved:</h2>
+          <h2><%= pluralize(@user_thread.errors.count, "error") %> prohibited this topic from being saved:</h2>
 
           <ul>
-            <% @thread.errors.full_messages.each do |msg| %>
+            <% @user_thread.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
           </ul>
