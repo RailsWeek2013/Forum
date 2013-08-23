@@ -35,7 +35,7 @@ class TopicsController < ApplicationController
       if @topic.update(topic_params)
         redirect_to action: 'index', notice: 'Topic was successfully updated.'
       else
-        render action: 'edit'
+        render 'admins/topic_edit'
       end
   end
 

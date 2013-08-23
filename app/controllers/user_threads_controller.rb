@@ -39,7 +39,7 @@ class UserThreadsController < ApplicationController
       if @user_thread.update(user_thread_params)
         redirect_to action: 'index', notice: 'User thread was successfully updated.'
       else
-        render action: 'edit'
+        render 'admins/thread_edit'
       end
   end
 
