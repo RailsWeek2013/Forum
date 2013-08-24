@@ -1,5 +1,6 @@
 Forum::Application.routes.draw do
 
+  
   root   'topics#index'
 
 
@@ -39,6 +40,8 @@ Forum::Application.routes.draw do
   patch "user"        => 'user#update'
   put   "user"        => 'user#update'
   get   "user/:id"    => 'user#show',               as: 'show_user'
+
+  get "/impressum" => "static_pages#impressum" , as: 'impressum'
 
   #match ':rest' => 'application#notfound', via: :all
 
