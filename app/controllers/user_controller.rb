@@ -33,13 +33,18 @@ class UserController < ApplicationController
       	else
         	render action: 'edit'
       end
-	end
+  end
+
+  def my_threads
+    @mythreads = current_user.user_threads
+  end
 
 
 	private 
 		def user_params
 	     	params.require(:user).permit(:name, :lastname, :gender, :signature)
     end
+
     def date_params
       params.require(:birth_day).permit(:year, :month, :day)
     end

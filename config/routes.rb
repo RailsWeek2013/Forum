@@ -34,11 +34,12 @@ Forum::Application.routes.draw do
   get     "admin/thread/:id/edit"  => 'admins#thread_edit',  as: :admin_edit_thread
 
 
-  get   "user"        => 'user#show_current_user',  as: 'show_current_user'
-  get   "user/edit"   => 'user#edit',               as: 'edit_user'
-  patch "user"        => 'user#update'
-  put   "user"        => 'user#update'
-  get   "user/:id"    => 'user#show',               as: 'show_user'
+  get   "user"          => 'user#show_current_user',  as: 'show_current_user'
+  get   "user/edit"     => 'user#edit',               as: 'edit_user'
+  patch "user"          => 'user#update'
+  put   "user"          => 'user#update'
+  get   "user/threads"  => 'user#my_threads',         as: 'show_user_threads'
+  get   "user/:id"      => 'user#show',               as: 'show_user'
 
   #match ':rest' => 'application#notfound', via: :all
 
