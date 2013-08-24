@@ -9,7 +9,7 @@
 <body>
 	<%= render partial: "layouts/header" %>
 	<div class="container">
-		<%= yield %>
+        <%= content_for?(:content) ? yield(:content) : yield %>
 	</div>
 	<br>
 	<%= render partial: "layouts/footer" %>

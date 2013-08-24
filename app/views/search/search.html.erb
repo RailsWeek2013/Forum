@@ -1,14 +1,21 @@
 <h1>Sucheergebnisse</h1>
-
-<h2> Im Titel: </h2>
-<% @results.each do |result| %>
-	<p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,anchor:"post#{result.id}",page: getPage(result) ) %> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
-<% end %>
-
-<h2> Im Text: </h2>
-
-<% @contentResults.each do |result| %>
-	<p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,anchor:"post#{result.id}",page: getPage(result) ) %> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
-<% end %>
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Title</a></li>
+    <li><a href="#tab2" data-toggle="tab">im Text</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <% @results.each do |result| %>
+          <p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,anchor:"post#{result.id}",page: getPage(result) ) %> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <% @contentResults.each do |result| %>
+          <p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,anchor:"post#{result.id}",page: getPage(result) ) %> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <%= link_to "Back", root_path %>

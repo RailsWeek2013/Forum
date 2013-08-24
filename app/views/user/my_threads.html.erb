@@ -1,0 +1,3 @@
+<% @mythreads.each do |thread| %>
+   <p><%= link_to thread.title, topic_user_thread_posts_path(thread.topic, thread) %></p>
+<% end %>
