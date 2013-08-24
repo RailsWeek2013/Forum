@@ -3,6 +3,7 @@
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">Title</a></li>
     <li><a href="#tab2" data-toggle="tab">im Text</a></li>
+    <li><a href="#tab3" data-toggle="tab">User</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
@@ -13,6 +14,11 @@
     <div class="tab-pane" id="tab2">
       <% @contentResults.each do |result| %>
           <p> <%= link_to result.title, topic_user_thread_posts_path(result.user_thread.topic,result.user_thread,anchor:"post#{result.id}",page: getPage(result) ) %> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.user_thread.topic.name %>  </p>
+      <% end %>
+    </div>
+     <div class="tab-pane" id="tab3">
+      <% @userResults.each do |result| %>
+          <p> <%= link_to result.email, show_user_path(result) %>  </p>
       <% end %>
     </div>
   </div>
