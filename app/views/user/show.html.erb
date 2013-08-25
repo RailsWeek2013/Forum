@@ -1,4 +1,9 @@
 <table>
+
+  <tr>
+    <td>Avatar: </td>
+    <td><%= image_tag @user.avatar, class: "img-rounded" %></td>
+  </tr>
   <tr>
     <td>Email: </td>
     <td><%= @user.email %></td>
@@ -38,3 +43,4 @@
 </table>
 
 <%= link_to "Profile bearbeiten", edit_user_path %>
+
