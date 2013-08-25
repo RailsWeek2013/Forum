@@ -1,3 +1,12 @@
-<% @mythreads.each do |thread| %>
-   <p><%= link_to thread.title, topic_user_thread_posts_path(thread.topic, thread) %></p>
-<% end %>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th></th>
+    <th>Thread Name</th>
+    <th>Neuster Post</th>
+    <th>erstellt am</th>
+    <th>Username</th>
+    <th>Anzahl Posts</th>
+  </tr>
+    <%= render partial: 'user_threads/user_thread', collection: @mythreads, as: :user_thread %>
+</table>
+

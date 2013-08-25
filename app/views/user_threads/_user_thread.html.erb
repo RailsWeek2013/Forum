@@ -5,10 +5,10 @@
 		<%= image_tag "ordner.png",class: "folder",size: "30x30" %>  
 	</td>
 	<td class = "userThreadTd">
-		<%= link_to user_thread.title , topic_user_thread_posts_path(@topic, user_thread)  %>  
+		<%= link_to user_thread.title , topic_user_thread_posts_path(user_thread.topic, user_thread)  %>
 	</td>
 	<% unless p.nil? %>
-		<td class = "userThreadTd"><%= link_to p.title, topic_user_thread_posts_path(@topic, user_thread, page: getPage(p), anchor: "post#{p.id}") %></td>
+		<td class = "userThreadTd"><%= link_to p.title, topic_user_thread_posts_path(user_thread.topic, user_thread, page: getPage(p), anchor: "post#{p.id}") %></td>
 		<td class = "userThreadTd"><%= p.created_at %></td>
 		<td class = "userThreadTd"> <% unless p.user.nil? %>
 			<%= link_to p.user.email, show_user_path(p.user) %> 
