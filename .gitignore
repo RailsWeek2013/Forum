@@ -18,5 +18,5 @@
 # Ignore RubyMine Projectfiles
 .idea
 
-# Carrierwave tmp files
-/public/uploads/tmp
+# Carrierwave upload files
+/public/uploads
