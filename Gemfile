@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'will_paginate'
 gem 'bootstrap-sass', '2.3.2.1'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
