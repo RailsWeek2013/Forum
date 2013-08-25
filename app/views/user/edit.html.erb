@@ -1,4 +1,4 @@
-<%= form_for @user, url: user_path, class: 'form-horizontal' do |f| %>
+<%= form_for @user, url: user_path, class: 'form-horizontal', html: { multipart: true } do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -10,6 +10,17 @@
       </ul>
     </div>
   <% end %>
+
+    <div class="control-group">
+      <%= image_tag(@user.avatar_url) if @user.avatar? %>
+      <div class="controls">
+        <%= f.file_field :avatar %>
+      </div>
+      <div class="controls">
+        <%= f.label "Remove avatar", class: 'control-label', for: 'user_remove_avatar' %>
+        <%= f.check_box :remove_avatar %>
+      </div>
+    </div>
 
     <div class="control-group">
       <%= f.label :name, class: 'control-label', for: 'input-lable' %>
@@ -24,6 +35,7 @@
         <%= f.text_field :lastname %>
       </div>
     </div>
+
     <div class="control-group">
       <%= f.label :birthday, class: 'control-label', for: 'input-lable' %>
       <div class="controls">
@@ -31,12 +43,14 @@
         <%= select_date day, prefix: :birth_day, order: [:day, :month, :year], start_year: Time.now.year - 100, end_year: Time.now.year %>
       </div>
     </div>
+
     <div class="control-group">
       <%= f.label :gender, class: 'control-label', for: 'input-lable' %>
       <div class="controls">
         <%= f.select :gender, [['M'], ['W']] %>
       </div>
     </div>
+
     <div class="control-group">
       <%= f.label :signature, class: 'control-label', for: 'input-lable' %>
       <div class="controls">

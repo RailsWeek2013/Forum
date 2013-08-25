@@ -42,7 +42,7 @@ class UserController < ApplicationController
 
 	private 
 		def user_params
-	     	params.require(:user).permit(:name, :lastname, :gender, :signature)
+	     	params.require(:user).permit(:name, :lastname, :gender, :signature, :avatar, :remove_avatar)
     end
 
     def date_params
