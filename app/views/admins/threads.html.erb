@@ -6,6 +6,7 @@
     <th>Thread</th>
     <th>Löschen</th>
     <th>Bearbeiten</th>
+    <th>Verschieben</th>
   </tr>
 
   <%  @userThread.each do |thread| %>
@@ -15,6 +16,11 @@
         <td>
           <%= link_to admin_edit_thread_path(thread) do %>
               <i class="icon-pencil"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to admin_move_thread_path(thread) do %>
+              <i class="icon-hand-right"></i>
           <% end %>
         </td>
       </tr>

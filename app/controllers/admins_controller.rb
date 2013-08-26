@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
 
   before_action :admin_check
+ 
 
   layout "admin"
 
@@ -53,6 +54,17 @@ class AdminsController < ApplicationController
     @user_thread = UserThread.find(params[:id])
   end
 
+  def thread_move
+    @options = Topic.all
+  end
+
+  def thread_moved
+    userT = UserThread.find(params[:id])
+    userT.topic = Topic.find(params[:user_thread][:topic])
+    userT.save
+    redirect_to admin_threads_path
+  end
+
 
   private
 
@@ -61,5 +73,6 @@ class AdminsController < ApplicationController
         redirect_to root_path
       end
     end
+
 
 end

@@ -33,6 +33,8 @@ Forum::Application.routes.draw do
   get     "admin/users"            => 'admins#users',        as: :admin_users
   get     "admin/topics/:id/edit"  => 'admins#topic_edit',   as: :admin_edit_topic
   get     "admin/thread/:id/edit"  => 'admins#thread_edit',  as: :admin_edit_thread
+  get     "admin/thread/:id/move"  => 'admins#thread_move',  as: :admin_move_thread
+  patch   "admin/thread/:id/moved" => 'admins#thread_moved',  as: :admin_moved_thread
 
 
   get   "user"          => 'user#show_current_user',  as: 'show_current_user'
