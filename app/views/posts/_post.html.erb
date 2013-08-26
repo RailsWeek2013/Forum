@@ -2,7 +2,7 @@
 
 	<div>
 
-  		 <h4 class="pull-left"><%= post.title %></h4>
+  		 <h4 class="pull-left"><%= word_wrap post.title, line_width: 90 %></h4>
   		 <% unless post.user.nil? %>
   		 <%= link_to post.user.email, show_user_path(post.user),class: "pull-right" %>
   		 <% else %>
@@ -11,7 +11,7 @@
  	</div>
  	<hr id="line" style="clear:both">
 	<div>
-		 <%= post.content %> 
+		 <%= word_wrap post.content, line_width: 90 %> 
 	</div>
 	<hr id="line">
 	<% unless post.user.nil? %>
