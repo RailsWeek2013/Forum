@@ -11,20 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130825112520) do
+ActiveRecord::Schema.define(version: 20130827153040) do
 
   create_table "posts", force: true do |t|
     t.string   "title",                          null: false
     t.text     "content",                        null: false
     t.boolean  "spam",           default: false, null: false
     t.integer  "user_thread_id",                 null: false
-    t.integer  "rating",         default: 0,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",                        null: false
   end
 
   add_index "posts", ["user_thread_id"], name: "index_posts_on_user_thread_id"
+
+  create_table "rates", force: true do |t|
+    t.integer  "post_id",    null: false
+    t.integer  "user_id",    null: false
+    t.string   "type",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rates", ["user_id", "post_id"], name: "index_rates_on_user_id_and_post_id", unique: true
 
   create_table "topics", force: true do |t|
     t.string   "name",       null: false

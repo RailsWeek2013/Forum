@@ -22,8 +22,8 @@
         <% unless post.user.nil? %>
             <%= post.user.signature %>
         <% end %>
-        <%= render partial: "spam", locals: {post: post} %>
         <%= render partial: "rating", locals: {post: post} %>
+        <%= render partial: "spam", locals: {post: post} %>
         <%= render partial: "delete", locals: {post: post} %>
       </div>
     </div>

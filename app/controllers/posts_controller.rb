@@ -64,21 +64,28 @@ class PostsController < ApplicationController
   end
 
   def rate_up
-    @post = Post.find(params[:id])
-    @post.rating += 1
-    @post.save
-    redirect_to action: 'index'
+    if user_signed_in?
+      post    = Post.find(params[:id])
+      r       = UpRate.new
+      r.post  = post
+      r.user  = current_user
+      r.save
+    end
+
+    redirect_to topic_user_thread_posts_path(post.topic, post.user_thread, anchor: post.postTagId, page: post.getPage)
   end
 
   def rate_down
-    @post = Post.find(params[:id])
-
-    if @post.rating > 0
-      @post.rating -= 1
+    if user_signed_in?
+      post    = Post.find(params[:id])
+      r       = DownRate.new
+      r.post  = post
+      r.user  = current_user
+      r.save
     end
 
-    @post.save
-    redirect_to action: 'index'
+    # TODO Helper erstellen
+    redirect_to topic_user_thread_posts_path(post.topic, post.user_thread, anchor: post.postTagId, page: post.getPage)
   end
 
   private
