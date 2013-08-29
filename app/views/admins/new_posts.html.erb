@@ -12,7 +12,7 @@
       <% user_thread = post.user_thread %>
       <% user = post.user %>
       <tr>
-        <td> <%= link_to post.title, topic_user_thread_posts_path(topic, user_thread, page: getPage(post), anchor:"post#{post.id}")%> </td>
+        <td> <%= link_to post.title, path_to_post(post) %> </td>
         <td>
         <% unless user.nil? %>
          <%= link_to user.email, show_user_path(user) %> 

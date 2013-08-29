@@ -10,7 +10,7 @@
 
   <% @posts.each do |post| %>
       <tr>
-        <td> <%= link_to post.title, topic_user_thread_posts_path(post.user_thread.topic, post.user_thread, anchor:"post#{post.id}",page: getPage(post)) %> </td>
+        <td> <%= link_to post.title, path_to_post(post) %> </td>
         <td> <%= link_to "Kein Spam", admins_nospam_path(post.id), method: :patch %> </td>
         <td> <%= link_to "löschen", topic_user_thread_post_path(post.user_thread.topic, post.user_thread,post), method: "delete" %></td>
       </tr>

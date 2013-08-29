@@ -4,6 +4,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :userCheck
 
+  include PostsHelper
+
+
   # GET /posts
   def index
     @posts = @userThread.posts.page(params[:page])
@@ -72,7 +75,7 @@ class PostsController < ApplicationController
       r.save
     end
 
-    redirect_to topic_user_thread_posts_path(post.topic, post.user_thread, anchor: post.postTagId, page: post.getPage)
+    redirect_to path_to_post post
   end
 
   def rate_down
@@ -84,8 +87,7 @@ class PostsController < ApplicationController
       r.save
     end
 
-    # TODO Helper erstellen
-    redirect_to topic_user_thread_posts_path(post.topic, post.user_thread, anchor: post.postTagId, page: post.getPage)
+    redirect_to path_to_post post
   end
 
   private
