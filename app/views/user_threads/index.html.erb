@@ -1,16 +1,6 @@
 <h1>Threads</h1>
 
-<table class="table table-bordered table-striped">	
-	<tr>
-		<th></th>
-		<th>Thread Name</th>
-		<th>Neuster Post</th>
-		<th>erstellt am</th>
-		<th>Username</th>
-		<th>Anzahl Posts</th>
-	</tr>
-	<%= render @user_threads %>
-</table>
+<%= render partial: "user_threads", locals: { user_threads: @user_threads } %>
 
 <br/>
 <% if user_signed_in? %>
