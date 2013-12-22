@@ -3,6 +3,7 @@ class UserController < ApplicationController
 	def show_current_user
 		if user_signed_in?
 			@user = current_user
+      @mythreads = @user.user_threads
 			render action: 'show'
 		else	
 			redirect_to root_path
@@ -12,6 +13,7 @@ class UserController < ApplicationController
 	def show
 		if user_signed_in?
 			@user = User.find(params[:id])
+      @mythreads = @user.user_threads
 		else
 			redirect_to root_path
 		end
