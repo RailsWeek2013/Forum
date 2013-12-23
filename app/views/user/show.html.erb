@@ -1,3 +1,12 @@
+<% if flash.any? %>
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: name %>
+        <% end %>
+    </div>
+<% end %>
+
 <ul class="nav nav-tabs">
     <li class="active"><a href="#profile" data-toggle="tab">Profil</a></li>
     <li><a href="#mythreads" data-toggle="tab">My Threads</a></li>
