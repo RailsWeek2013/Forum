@@ -1,16 +1,6 @@
+<%= render partial: "layouts/error", locals: { errors: @topic.errors } %>
+
 <%= form_for [@topic, @userThread, @post] do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
     <div class="control-group">
       <%= f.label :title %>
       <div class="controls">

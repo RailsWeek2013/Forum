@@ -1,19 +1,8 @@
 <h1>New topic</h1>
 
+<%= render partial: "layouts/error", locals: { errors: @topic.errors } %>
+
 <%= form_for @topic, class: 'form-horizontal' do |f| %>
-    <% if @topic.errors.any? %>
-        <div class="alert alert-danger" id="error_explanation">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <strong><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</strong>
-
-          <ul>
-            <% @topic.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
     <div class="control-group">
       <%= f.label :name, class: 'control-label', for: 'input-lable' %>
       <div class="controls">
