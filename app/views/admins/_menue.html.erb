@@ -1,14 +1,23 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand">Menue</a>
-    <ul class="nav">
-      <li><%= link_to "Admin", admins_index_path %></li>
-      <li><%= link_to "users", admin_users_path %></li>
-      <li><%= link_to "topics", admin_topics_path %></li>
-      <li><%= link_to "threads", admin_threads_path %></li>
-      <li><%= link_to "spam posts", admin_spam_posts_path %></li>
-      <li><%= link_to "new posts", admin_new_posts_path %></li>
-      <li><%= link_to "Forum", root_path %></li>
-    </ul>
-  </div>
+<div class="navbar navbar-default" role="navigation"">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">Menue</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Admin", admins_index_path %></li>
+          <li><%= link_to "users", admin_users_path %></li>
+          <li><%= link_to "topics", admin_topics_path %></li>
+          <li><%= link_to "threads", admin_threads_path %></li>
+          <li><%= link_to "spam posts", admin_spam_posts_path %></li>
+          <li><%= link_to "new posts", admin_new_posts_path %></li>
+          <li><%= link_to "Forum", root_path %></li>
+        </ul>
+      </div>
 </div>

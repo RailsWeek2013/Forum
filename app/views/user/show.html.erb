@@ -1,65 +1,60 @@
-<div class="tabbable tabs-left">
-  <ul class="nav nav-tabs">
-    <li class="active">
-      <a href="#tab1" data-toggle="tab">Profil</a>
-    </li>
-    <li>
-      <a href="#tab2" data-toggle="tab">My Threads</a>
-    </li>
-  </ul>
-  <div class="tab-content">
-      <div class="tab-pane active" id="tab1">
-        <div class="container-fluid">
-          <div class="row-fluid">
-            <div class="span2">
-              <%= image_tag @user.avatar, class: "img-rounded" %>
-            </div>
-            <div class="span10">
-              <table>
-                <tr>
-                  <td>Email: </td>
-                  <td><%= @user.email %></td>
-                </tr>
-                <tr>
-                  <td>Vorname: </td>
-                  <td><%= @user.name %></td>
-                </tr>
-                <tr>
-                  <td>Nachname: </td>
-                  <td><%= @user.lastname %></td>
-                </tr>
-                <tr>
-                  <td>Geburtsdatum: </td>
-                  <td><%= @user.birthday %></td>
-                </tr>
-                <tr>
-                  <td>Geschlecht: </td>
-                  <td><%= @user.gender %></td>
-                </tr>
-                <tr>
-                  <td>Signatur: </td>
-                  <td><%= @user.signature %></td>
-                </tr>
-                <tr>
-                  <td>Letzter Login: </td>
-                  <td><%= @user.last_sign_in_at %></td>
-                </tr>
-                <tr>
-                  <td>Account erstellt: </td>
-                  <td><%= @user.created_at %></td>
-                </tr>
-                <tr>
-                  <td>Admin: </td>
-                  <td><%= @user.admin %></td>
-                </tr>
-              </table>
-              <%= link_to "Profile bearbeiten", edit_user_path %>
-            </div>
-          </div>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#profile" data-toggle="tab">Profil</a></li>
+    <li><a href="#mythreads" data-toggle="tab">My Threads</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="profile">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <%= image_tag @user.avatar, class: "img-rounded" %>
+        </div>
+        <div class="span10">
+          <table>
+            <tr>
+              <td>Email: </td>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <td>Vorname: </td>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <td>Nachname: </td>
+              <td><%= @user.lastname %></td>
+            </tr>
+            <tr>
+              <td>Geburtsdatum: </td>
+              <td><%= @user.birthday %></td>
+            </tr>
+            <tr>
+              <td>Geschlecht: </td>
+              <td><%= @user.gender %></td>
+            </tr>
+            <tr>
+              <td>Signatur: </td>
+              <td><%= @user.signature %></td>
+            </tr>
+            <tr>
+              <td>Letzter Login: </td>
+              <td><%= @user.last_sign_in_at %></td>
+            </tr>
+            <tr>
+              <td>Account erstellt: </td>
+              <td><%= @user.created_at %></td>
+            </tr>
+            <tr>
+              <td>Admin: </td>
+              <td><%= @user.admin %></td>
+            </tr>
+          </table>
+          <%= link_to "Profile bearbeiten", edit_user_path %>
         </div>
       </div>
-      <div class="tab-pane" id="tab2">
-        <%= render partial: 'user_threads/user_threads', locals: { user_threads: @mythreads } %>
-      </div>
+    </div>
+  </div>
+  <div class="tab-pane" id="mythreads">
+    <%= render partial: 'user_threads/user_threads', locals: { user_threads: @mythreads } %>
   </div>
 </div>
