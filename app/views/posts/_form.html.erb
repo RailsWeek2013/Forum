@@ -1,23 +1,32 @@
-<%= render partial: "layouts/error", locals: { errors: @topic.errors } %>
+<%= render partial: "layouts/error", locals: { errors: @post.errors } %>
 
 <%= form_for [@topic, @userThread, @post] do |f| %>
-    <div class="control-group">
-      <%= f.label :title %>
-      <div class="controls">
+
+    <div class = "panel panel-default" >
+
+      <div class="panel-heading">
         <%= f.text_field :title %>
       </div>
-  </div>
 
-  <div class="control-group">
-    <%= f.label :content %>
-    <div class="controls">
-        <%= f.text_area :content, rows: 5 %>
-    </div>
-  </div>
+      <div class="panel-body">
+        <div class="col-xs-4 col-sm-2">
+          <%= link_to show_user_path(current_user) do %>
+              <%= image_tag current_user.avatar, class: "img-rounded" %>
+          <% end %>
+        </div>
 
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit class: 'btn btn-success'%>
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <%= f.text_area :content, rows: 6, cols: 105 %>
+        </div>
+
       </div>
+
+      <div class="panel-footer">
+        <%= current_user.signature %>
+
+        <%= f.submit class: 'btn btn-success pull-right'%>
+      </div>
+
     </div>
+
 <% end %>
