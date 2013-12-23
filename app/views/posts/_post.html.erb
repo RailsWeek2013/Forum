@@ -1,31 +1,33 @@
-<div class = "well" id= <%= "post" + post.id.to_s %> >
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span2">
-        <%= image_tag post.user.avatar, class: "img-rounded" %>
-      </div>
-      <div class="span10">
-        <div>
+<div class = "panel panel-default" id= <%= "post" + post.id.to_s %> >
 
-          <h4 class="pull-left"><%= word_wrap post.title, line_width: 90 %></h4>
-          <% unless post.user.nil? %>
-              <%= link_to post.user.email, show_user_path(post.user),class: "pull-right" %>
-          <% else %>
-              <p class="pull-right"> geloeschter User </p>
-          <% end %>
-        </div>
-        <hr id="line" style="clear:both">
-        <div>
-          <%= word_wrap post.content, line_width: 90 %>
-        </div>
-        <hr id="line">
-        <% unless post.user.nil? %>
-            <%= post.user.signature %>
-        <% end %>
-        <%= render partial: "rating", locals: {post: post} %>
-        <%= render partial: "spam", locals: {post: post} %>
-        <%= render partial: "delete", locals: {post: post} %>
-      </div>
-    </div>
+  <div class="panel-heading">
+    <h3><%= word_wrap post.title %></h3>
   </div>
+
+  <div class="panel-body">
+    <div class="col-xs-4 col-sm-2">
+      <% unless post.user.nil? %>
+          <%= link_to show_user_path(post.user) do %>
+              <%= image_tag post.user.avatar, class: "img-rounded" %>
+          <% end %>
+      <% else %>
+          <p class="pull-right"> geloeschter User </p>
+      <% end %>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-8">
+      <%= word_wrap post.content, line_width: 90 %>
+    </div>
+
+  </div>
+
+  <div class="panel-footer">
+    <% unless post.user.nil? %>
+        <%= post.user.signature %>
+    <% end %>
+    <%= render partial: "rating", locals: {post: post} %>
+    <%= render partial: "spam", locals: {post: post} %>
+    <%= render partial: "delete", locals: {post: post} %>
+  </div>
+
 </div>

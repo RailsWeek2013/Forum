@@ -40,3 +40,7 @@ https://github.com/minimagick/minimagick
 
 
 Copyright 2013 Moritz Münch, Phillip Trusheim
+
+
+Es muss imagemagick auf dem System installiert sein.
+sudo apt-get install imagemagick
