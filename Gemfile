@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'devise'
 gem 'will_paginate'
-gem 'bootstrap-sass', '2.3.2.1'
+gem 'bootstrap-sass', '3.0.3.0'
 gem 'carrierwave'
 gem 'mini_magick'
 
