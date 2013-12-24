@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827153040) do
+ActiveRecord::Schema.define(version: 20131223132615) do
 
   create_table "posts", force: true do |t|
     t.string   "title",                          null: false
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20130827153040) do
   end
 
   add_index "posts", ["user_thread_id"], name: "index_posts_on_user_thread_id"
+
+  create_table "private_messages", force: true do |t|
+    t.text     "content"
+    t.string   "title"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.boolean  "readed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rates", force: true do |t|
     t.integer  "post_id",    null: false

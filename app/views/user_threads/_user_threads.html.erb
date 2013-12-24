@@ -1,39 +1,45 @@
-<table class="table table-bordered table-striped">
-  <tr>
-    <th></th>
-    <th>Thread Name</th>
-    <th>Neuster Post</th>
-    <th>erstellt am</th>
-    <th>Username</th>
-    <th>Anzahl Posts</th>
-  </tr>
+<% if user_threads.any? %>
 
-  <% user_threads.each do |user_thread| %>
-      <% p = user_thread.posts.order("created_at").last %>
-
+    <table class="table table-bordered table-striped">
       <tr>
-        <td class = "userThreadTd">
-          <%= image_tag "ordner.png",class: "folder",size: "30x30" %>
-        </td>
-        <td class = "userThreadTd">
-          <%= link_to user_thread.title , topic_user_thread_posts_path(user_thread.topic, user_thread)  %>
-        </td>
-        <% unless p.nil? %>
-            <td class = "userThreadTd"><%= link_to p.title, path_to_post(p) %></td>
-            <td class = "userThreadTd"><%= p.created_at %></td>
-            <td class = "userThreadTd"> <% unless p.user.nil? %>
-                  <%= link_to p.user.email, show_user_path(p.user) %>
-              <% else %>
-                  geloeschter User
-              <% end %>
-            </td>
-            <td class = "userThreadTd"><%= user_thread.posts.count %></td>
-        <% else %>
-            <td class = "userThreadTd">-</td>
-            <td class = "userThreadTd">-</td>
-            <td class = "userThreadTd">-</td>
-            <td class = "userThreadTd">-</td>
-        <% end %>
+        <th></th>
+        <th>Thread Name</th>
+        <th>Neuster Post</th>
+        <th>erstellt am</th>
+        <th>Username</th>
+        <th>Anzahl Posts</th>
       </tr>
-  <% end %>
-</table>
+
+      <% user_threads.each do |user_thread| %>
+          <% p = user_thread.posts.order("created_at").last %>
+
+          <tr>
+            <td class = "userThreadTd">
+              <%= image_tag "ordner.png",class: "folder",size: "30x30" %>
+            </td>
+            <td class = "userThreadTd">
+              <%= link_to user_thread.title , topic_user_thread_posts_path(user_thread.topic, user_thread)  %>
+            </td>
+            <% unless p.nil? %>
+                <td class = "userThreadTd"><%= link_to p.title, path_to_post(p) %></td>
+                <td class = "userThreadTd"><%= p.created_at %></td>
+                <td class = "userThreadTd"> <% unless p.user.nil? %>
+                      <%= link_to p.user.email, show_user_path(p.user) %>
+                  <% else %>
+                      geloeschter User
+                  <% end %>
+                </td>
+                <td class = "userThreadTd"><%= user_thread.posts.count %></td>
+            <% else %>
+                <td class = "userThreadTd">-</td>
+                <td class = "userThreadTd">-</td>
+                <td class = "userThreadTd">-</td>
+                <td class = "userThreadTd">-</td>
+            <% end %>
+          </tr>
+      <% end %>
+    </table>
+
+<% else %>
+    <h2>Keine Threads vorhanden</h2>
+<% end %>

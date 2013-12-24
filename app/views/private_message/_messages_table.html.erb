@@ -1,0 +1,27 @@
+
+<% if messages.any? %>
+    <table class="table table-bordered table-striped">
+
+      <tr>
+        <th>Betreff</th>
+        <th>Sender</th>
+        <th>Empfänger</th>
+        <th>Zeit</th>
+        <th>Gelesen?</th>
+      </tr>
+
+      <% messages.each do |message| %>
+          <tr>
+            <td><%= link_to message.title, show_private_message_path(message.id) %></td>
+            <td><%= link_to message.sender.email,     show_user_path(message.sender)   %></td>
+            <td><%= link_to message.receiver.email,   show_user_path(message.receiver) %></td>
+            <td><%= message.created_at %></td>
+            <td><%= message.readed %></td>
+          </tr>
+      <% end %>
+
+    </table>
+
+<% else %>
+    <h2>Keine Nachrichten</h2>
+<% end %>
