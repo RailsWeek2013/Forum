@@ -1,41 +1,74 @@
-<h1>Sucheergebnisse</h1>
-<div class="tabbable">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#results" data-toggle="tab">Title</a></li>
-    <li><a href="#contentResults" data-toggle="tab">im Text</a></li>
-    <li><a href="#userResults" data-toggle="tab">User</a></li>
-    <li><a href="#topicResults" data-toggle="tab">Topics</a></li>
-    <li><a href="#threadResults" data-toggle="tab">Threads</a></li>
-  </ul>
+<h1>Suchergebnisse</h1>
 
-  <div class="tab-content">
-    <div class="tab-pane active" id="results">
-      <% @results.each do |result| %>
-          <p> <%= link_to result.title, path_to_post(result) %> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.topic.name %>  </p>
-      <% end %>
-    </div>
-    <div class="tab-pane" id="contentResults">
-      <% @contentResults.each do |result| %>
-          <p> <%= link_to result.title, path_to_post(result) %> in Thread:<%= result.user_thread.title %>, in Topic:<%= result.topic.name %>  </p>
-      <% end %>
-    </div>
-     <div class="tab-pane" id="userResults">
-      <% @userResults.each do |result| %>
-          <p> <%= link_to result.email, show_user_path(result) %>  </p>
-      <% end %>
-    </div>
-     <div class="tab-pane" id="topicResults">
-      <% @topicResults.each do |result| %>
-          <p> <%= link_to result.name, topics_path(result) %>  </p>
-      <% end %>
-    </div>
-     <div class="tab-pane" id="threadResults">
-      <% @threadResults.each do |result| %>
-          <p> <%= link_to result.title, topic_user_threads_path(result.topic,result) %>  </p>
-      <% end %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2>Posts</h2>
+    <% if @postResults.any? %>
+        <table class="table table-striped">
+            <tr>
+              <th>Post</th>
+              <th>Thread</th>
+              <th>Topic</th>
+            </tr>
+            <% @postResults.each do |result| %>
+                <tr>
+                  <td><%= link_to result.title, path_to_post(result) %></td>
+                  <td><%= link_to result.user_thread.title, topic_user_thread_path(result.topic, result.user_thread) %></td>
+                  <td><%= link_to result.topic.name, topic_path(result.topic) %></td>
+                </tr>
+            <% end %>
+        </table>
+    <% else %>
+        <p>Kein Post gefunden</p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>Topics</h2>
+        <% if @topicResults.any? %>
+            <% @topicResults.each do |result| %>
+                <p> <%= link_to result.name, topics_path(result) %>  </p>
+            <% end %>
+        <% else %>
+            <p>Keine Topics gefunden</p>
+        <% end %>
+      </div>
     </div>
   </div>
 
+  <div class="col-xs-6 col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>Threads</h2>
+        <% if @threadResults.any? %>
+            <% @threadResults.each do |result| %>
+                <p> <%= link_to result.title, topic_user_threads_path(result.topic, result) %>  </p>
+            <% end %>
+        <% else %>
+            <p>Keine Threads gefunden</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-6 col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>User</h2>
+        <% if @userResults.any? %>
+            <% @userResults.each do |result| %>
+                <p> <%= link_to result.email, show_user_path(result) %>  </p>
+            <% end %>
+        <% else %>
+            <p>Keine User gefunden</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Back", root_path %>
+<%= link_to "Back", root_path, class: 'btn btn-primary' %>
