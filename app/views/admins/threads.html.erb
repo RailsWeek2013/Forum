@@ -4,23 +4,32 @@
 <table id = "threadTable" class="table table-hover">
   <tr>
     <th>Thread</th>
-    <th>Löschen</th>
-    <th>Bearbeiten</th>
-    <th>Verschieben</th>
+    <th>Anzahl Posts</th>
+    <th></th>
+    <th></th>
   </tr>
 
   <%  @userThread.each do |thread| %>
       <tr>
-        <td> <%= link_to thread.title, topic_user_thread_posts_path(thread.topic, thread) %> </td>
-        <td> <%= link_to "Löschen" , topic_user_thread_path(thread.topic,thread) , method: :delete %> </td>
         <td>
-          <%= link_to admin_edit_thread_path(thread) do %>
-              <i class="icon-pencil"></i>
-          <% end %>
+          <%= link_to thread.title, topic_user_thread_posts_path(thread.topic, thread) %>
         </td>
+
+        <td> <%= thread.posts.count %> </td>
+
+        <td></td>
+
         <td>
+          <%= link_to topic_user_thread_path(thread.topic,thread) , method: :delete do%>
+              <span class="glyphicon glyphicon-remove-circle" title="Löschen"></span>
+          <% end %>
+
+          <%= link_to admin_edit_thread_path(thread) do %>
+              <span class="glyphicon glyphicon-pencil" title="Bearbeiten"></span>
+          <% end %>
+
           <%= link_to admin_move_thread_path(thread) do %>
-              <i class="icon-hand-right"></i>
+              <span class="glyphicon glyphicon-hand-right" title="Verschieben"></span>
           <% end %>
         </td>
       </tr>

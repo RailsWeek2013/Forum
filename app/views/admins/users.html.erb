@@ -3,13 +3,23 @@
 
 <table id = "userTable" class="table table-hover">
   <tr>
+    <th>id</th>
     <th>User-Email</th>
-    <th>Löschen</th>
+    <th>Zuletzt eingeloggt</th>
+    <th>Anzahl Posts</th>
+    <th></th>
   </tr>
   <% @users.each do |user| %>
       <tr>
+        <td> <%= user.id %> </td>
         <td> <%= link_to user.email, show_user_path(user) %> </td>
-        <td> <%= link_to "Löschen",admins_destroy_path(user.id), method: :delete %> </td>
+        <td> <%= user.last_sign_in_at %> </td>
+        <td> <%= user.posts.count %> </td>
+        <td>
+          <%= link_to admins_destroy_path(user.id), method: :delete do %>
+              <span class="glyphicon glyphicon-remove-circle" title="Löschen"></span>
+          <% end %>
+        </td>
       </tr>
   <% end %>
 </table>

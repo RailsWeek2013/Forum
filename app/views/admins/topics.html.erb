@@ -4,17 +4,21 @@
 <table id = "topicTable" class="table table-hover">
   <tr>
     <th>Topic</th>
-    <th>Löschen</th>
-    <th>Bearbeiten</th>
+    <th>Anzahl Threads</th>
+    <th></th>
   </tr>
 
   <%  @topic.each do |topic| %>
       <tr>
         <td> <%= link_to topic.name, topic_user_threads_path(topic) %> </td>
-        <td> <%= link_to "Löschen" , topic_path(topic) , method: :delete %> </td>
+        <td> <%= topic.user_threads.count %> </td>
         <td>
+            <%= link_to topic_path(topic) , method: :delete do %>
+                <span class="glyphicon glyphicon-remove-circle" title="Löschen"></span>
+            <% end %>
+
             <%= link_to admin_edit_topic_path(topic) do %>
-                <i class="icon-pencil"></i>
+                <span class="glyphicon glyphicon-pencil" title="Bearbeiten"></span>
             <% end %>
         </td>
       </tr>

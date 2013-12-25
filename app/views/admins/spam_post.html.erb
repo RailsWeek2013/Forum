@@ -5,14 +5,18 @@
   <tr>
     <th>Spampost</th>
     <th>Spam ?</th>
-    <th>Löschen</th>
+    <th></th>
   </tr>
 
   <% @posts.each do |post| %>
       <tr>
         <td> <%= link_to post.title, path_to_post(post) %> </td>
         <td> <%= link_to "Kein Spam", admins_nospam_path(post.id), method: :patch %> </td>
-        <td> <%= link_to "löschen", topic_user_thread_post_path(post.user_thread.topic, post.user_thread,post), method: "delete" %></td>
+        <td>
+          <%= link_to topic_user_thread_post_path(post.user_thread.topic, post.user_thread,post), method: "delete" do%>
+              <span class="glyphicon glyphicon-remove-circle" title="Löschen"></span>
+          <% end %>
+        </td>
       </tr>
   <% end %>
 </table>
