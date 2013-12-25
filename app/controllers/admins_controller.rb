@@ -59,7 +59,7 @@ class AdminsController < ApplicationController
     userT = UserThread.find(params[:id])
     userT.topic = Topic.find(params[:user_thread][:topic])
     userT.save
-    redirect_to admin_threads_path
+    redirect_to admin_topics_threads_path
   end
 
 
