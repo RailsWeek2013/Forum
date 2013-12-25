@@ -34,11 +34,8 @@ class AdminsController < ApplicationController
     @posts = Post.where(spam: true)
   end
 
-  def threads
+  def topics_threads
     @userThread = UserThread.all
-  end
-
-  def topics
     @topic = Topic.all
   end
 
