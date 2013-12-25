@@ -1,8 +1,15 @@
-<%= form_tag("/search",method: :get, class: "navbar-form navbar-right") do %>
+
+<%= form_tag("/search",method: :get, class: "navbar-form navbar-right") do |f| %>
     <div class="input-group">
+
+      <% if flash[:search_error] %>
+          <%= label_tag 'error_label', flash[:search_error], for: 'search_field' %>
+      <% end %>
+
       <div class="form-group">
+
         <%= text_field_tag :search_field, nil, class: 'form-control', placeholder: 'Search' %>
       </div>
       <%= submit_tag "Search", class: 'btn btn-default' %>
-    </div><!-- /input-group -->
+    </div>
 <% end %>

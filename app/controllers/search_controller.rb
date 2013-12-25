@@ -1,32 +1,16 @@
 class SearchController < ApplicationController
-	before_action :setPosts
-	before_action :setUsers
-	before_action :setThreads
-	before_action :setTopics
 
   def search
-  	@results =  @posts.where("title like ?","%"+params[:search_field]+"%")
-  	@contentResults = @posts.where("content like ?","%"+params[:search_field]+"%")
-  	@userResults = @users.where("email like ?","%"+params[:search_field]+"%")
-  	@threadResults = @threads.where("title like ?","%"+params[:search_field]+"%")
-  	@topicResults = @topics.where("name like ?","%"+params[:search_field]+"%")
+    if params[:search_field] == ''
+      flash[:search_error] = 'Bitte geben Sie einen Suchbegriff ein!'
+      redirect_to root_path
+    else
+      @results        = Post.all.where("title like ?","%" + params[:search_field] + "%")
+      @contentResults = Post.all.where("content like ?","%" + params[:search_field] + "%")
+      @userResults    = User.all.where("email like ?","%" + params[:search_field] + "%")
+      @threadResults  = UserThread.all.where("title like ?","%" + params[:search_field] + "%")
+      @topicResults   = Topic.all.where("name like ?","%" + params[:search_field] + "%")
+    end
   end
 
-  private 
-
-  def setPosts
-  	@posts = Post.all
-  end
-
-  def setUsers
-  	@users = User.all
-  end
-
-  def setThreads
-  	@threads = UserThread.all
-  end
-
-  def setTopics
-  	@topics = Topic.all
-  end
 end
