@@ -2,7 +2,7 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <h2>Posts</h2>
+    <h2>Posts (<%= @postResults.count %>)</h2>
     <% if @postResults.any? %>
         <table class="table table-striped">
             <tr>
@@ -28,7 +28,7 @@
   <div class="col-xs-6 col-sm-4">
     <div class="panel panel-default">
       <div class="panel-body">
-        <h2>Topics</h2>
+        <h2>Topics (<%= @topicResults.count %>)</h2>
         <% if @topicResults.any? %>
             <% @topicResults.each do |result| %>
                 <p> <%= link_to result.name, topics_path(result) %>  </p>
@@ -43,7 +43,7 @@
   <div class="col-xs-6 col-sm-4">
     <div class="panel panel-default">
       <div class="panel-body">
-        <h2>Threads</h2>
+        <h2>Threads (<%= @threadResults.count %>)</h2>
         <% if @threadResults.any? %>
             <% @threadResults.each do |result| %>
                 <p> <%= link_to result.title, topic_user_threads_path(result.topic, result) %>  </p>
@@ -58,7 +58,7 @@
   <div class="col-xs-6 col-sm-4">
     <div class="panel panel-default">
       <div class="panel-body">
-        <h2>User</h2>
+        <h2>User (<%= @userResults.count %>)</h2>
         <% if @userResults.any? %>
             <% @userResults.each do |result| %>
                 <p> <%= link_to result.email, show_user_path(result) %>  </p>
