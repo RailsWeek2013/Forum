@@ -37,7 +37,7 @@ class UserThreadsController < ApplicationController
   # PATCH/PUT /user_threads/1
   def update
       if @user_thread.update(user_thread_params)
-        redirect_to admin_threads_path, notice: 'User thread was successfully updated.'
+        redirect_to admin_topics_threads_path, notice: 'User thread was successfully updated.'
       else
         render 'admins/thread_edit'
       end
