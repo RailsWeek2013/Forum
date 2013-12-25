@@ -1,28 +1,57 @@
 <h1>Suchergebnisse</h1>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <h2>Posts (<%= @postResults.count %>)</h2>
-    <% if @postResults.any? %>
-        <table class="table table-striped">
-            <tr>
-              <th>Post</th>
-              <th>Thread</th>
-              <th>Topic</th>
-            </tr>
-            <% @postResults.each do |result| %>
-                <tr>
-                  <td><%= link_to result.title, path_to_post(result) %></td>
-                  <td><%= link_to result.user_thread.title, topic_user_thread_path(result.topic, result.user_thread) %></td>
-                  <td><%= link_to result.topic.name, topic_path(result.topic) %></td>
-                </tr>
-            <% end %>
-        </table>
-    <% else %>
-        <p>Kein Post gefunden</p>
-    <% end %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>Posts (<%= @postResults.count %>)</h2>
+        <% if @postResults.any? %>
+            <table class="table table-striped">
+              <tr>
+                <th>Post</th>
+                <th>Thread</th>
+                <th>Topic</th>
+              </tr>
+              <% @postResults.each do |result| %>
+                  <tr>
+                    <td><%= link_to result.title, path_to_post(result) %></td>
+                    <td><%= link_to result.user_thread.title, topic_user_thread_path(result.topic, result.user_thread) %></td>
+                    <td><%= link_to result.topic.name, topic_path(result.topic) %></td>
+                  </tr>
+              <% end %>
+            </table>
+        <% else %>
+            <p>Kein Post gefunden</p>
+        <% end %>
+      </div>
+    </div>
   </div>
+
+  <div class="col-xs-6 col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>Posts (<%= @postResults.count %>)</h2>
+        <% if @postResults.any? %>
+            <div class="list-group">
+              <% @postResults.each do |result| %>
+                  <a href=<%= path_to_post(result) %> class="list-group-item">
+                    <h4 class="list-group-item-heading"><%= result.title %></h4>
+
+                    <p class="list-group-item-text"><%= result.content[0..64] %>...</p>
+                  </a>
+              <% end %>
+            </div>
+
+        <% else %>
+            <p>Kein Post gefunden</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
 </div>
+
 
 <div class="row">
   <div class="col-xs-6 col-sm-4">
