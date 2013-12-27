@@ -2,17 +2,13 @@
 
 <%= render partial: "layouts/error", locals: { errors: @topic.errors } %>
 
-<%= form_for @topic, class: 'form-horizontal' do |f| %>
-    <div class="control-group">
+<%= form_for @topic, class: 'form-horizontal', html: {role: 'form', style: 'width: 20%'} do |f| %>
+    <div class="form-group">
       <%= f.label :name, class: 'control-label', for: 'input-lable' %>
-      <div class="controls">
-        <%= f.text_field :name %>
-      </div>
+      <%= f.text_field :name, class: 'form-control' %>
     </div>
-    <div class="control-group">
-      <div class="controls">
+    <div class="form-group">
         <%= f.submit class: 'btn btn-success'%>
         <%= link_to 'Abbrechen', topics_path, class: 'btn btn-danger' %>
-      </div>
     </div>
 <% end %>

@@ -2,18 +2,15 @@
 
 <%= render partial: "layouts/error", locals: { errors: @user_thread.errors } %>
 
-<%= form_for([@user_thread.topic, @user_thread], class: 'form-horizontal') do |f| %>
-    <div class="control-group">
+<%= form_for([@user_thread.topic, @user_thread], class: 'form-horizontal', html: {role: 'form', style: 'width: 25%'}) do |f| %>
+    <div class="form-group">
       <%= f.label :title, class: 'control-label', for: 'input-lable'%>
-      <div class="controls">
-        <%= f.text_field :title %>
-      </div>
+      <%= f.text_field :title, class: 'form-control' %>
     </div>
-    <div class="control-group">
-      <div class="controls">
+
+    <div class="form-group">
         <%= f.submit class: 'btn btn-success' %>
         <%= link_to 'Abbrechen', topic_user_threads_path, class: 'btn btn-danger' %>
-      </div>
     </div>
 <% end %>
 
