@@ -1,13 +1,21 @@
 class UserController < ApplicationController
 
-	def show_current_user
-    direct_to root_path unless user_signed_in?
+  before_action :authenticate_user!
+  before_action :set_current_user
+  before_action :get_new_message_count
 
-    @user       = current_user
-    @mythreads  = @user.user_threads
+
+	def current_user_profil
+  end
+
+  def current_user_messages
     @my_received_messages = @user.received_messages
     @my_sent_messages     = @user.sent_messages
-	end
+  end
+
+  def current_user_threads
+    @mythreads = @user.user_threads
+  end
 
 	def show
     redirect_to root_path unless user_signed_in?
@@ -16,7 +24,7 @@ class UserController < ApplicationController
       @user = User.find(params[:id])
 
       if @user == current_user
-        redirect_to show_current_user_path
+        redirect_to current_user_path
       else
         @mythreads = @user.user_threads
       end
@@ -27,27 +35,19 @@ class UserController < ApplicationController
 	end
 
 	def edit
-		@user = current_user
 	end
 
 	def update
-		@user = current_user
-
     p = date_params
     para = user_params
     para[:birthday] = Date.new(p[:year].to_i, p[:month].to_i, p[:day].to_i)
 
 		if @user.update(para)
-        	redirect_to show_current_user_path, notice: 'Profil erfolgreich geändert.'
+        	redirect_to current_user_path, notice: 'Profil erfolgreich geändert.'
       	else
         	render action: 'edit'
       end
   end
-
-  def my_threads
-    @mythreads = current_user.user_threads
-  end
-
 
 	private 
 		def user_params
@@ -56,5 +56,13 @@ class UserController < ApplicationController
 
     def date_params
       params.require(:birth_day).permit(:year, :month, :day)
+    end
+
+    def get_new_message_count
+      @new_message_count = @user.received_messages.where(readed: true).count
+    end
+
+    def set_current_user
+      @user = current_user
     end
 end

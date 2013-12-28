@@ -1,17 +1,6 @@
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#profile" data-toggle="tab">Profil</a></li>
-    <li><a href="#mythreads" data-toggle="tab">Threads</a></li>
-</ul>
+<%= render partial: 'user/user_navi', locals: {
+        new_message_count: @new_message_count,
+        active: 1
+} %>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="profile">
-    <%= render partial: "user/user_profile" %>
-
-    <%= link_to 'Nachricht Senden', '#' %>
-  </div>
-
-  <div class="tab-pane" id="mythreads">
-    <%= render partial: 'user_threads/user_threads', locals: { user_threads: @mythreads } %>
-  </div>
-
-</div>
+<%= render partial: 'user/user_profile' %>
