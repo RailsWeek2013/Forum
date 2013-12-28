@@ -1,0 +1,42 @@
+<% content_for :user_profil do %>
+    <div class="row">
+      <div class="col-md-2">
+        <ul class="nav nav-pills nav-stacked">
+
+          <% if @active == 1 %>
+              <li class="active">
+          <% else %>
+              <li>
+          <% end %>
+          <%= link_to 'Profile', current_user_path %>
+          </li>
+
+          <% if @active == 2 %>
+              <li class="active">
+          <% else %>
+              <li>
+          <% end %>
+          <%= link_to 'My Threads', current_user_threads_path %>
+          </li>
+
+          <% if @active == 3 %>
+              <li class="active">
+          <% else %>
+              <li>
+          <% end %>
+          <%= link_to current_user_messages_path do %>
+              <span class="badge pull-right"><%= @new_message_count %></span>
+              Messages
+          <% end %>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="col-md-10">
+        <%= yield %>
+      </div>
+    </div>
+<% end %>
+
+<%= render template: "layouts/application" %>

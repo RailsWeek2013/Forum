@@ -1,13 +1,1 @@
-<div class="row">
-
-  <div class="col-md-2">
-    <%= render partial: 'user/user_navi', locals: {
-            new_message_count: @new_message_count,
-            active: 1
-    } %>
-  </div>
-
-  <div class="col-md-10">
-    <%= render partial: 'user/user_profile' %>
-  </div>
-</div>
+<%= render 'user/user_profile' %>

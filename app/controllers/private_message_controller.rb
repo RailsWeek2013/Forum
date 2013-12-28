@@ -1,5 +1,8 @@
 class PrivateMessageController < ApplicationController
 
+  layout "user"
+
+
   def new_message
     @message = current_user.sent_messages.new
   end
