@@ -6,18 +6,22 @@ class UserController < ApplicationController
 
 
 	def current_user_profil
+    @active_link = 1
   end
 
   def current_user_messages
+    @active_link = 3
     @my_received_messages = @user.received_messages
     @my_sent_messages     = @user.sent_messages
   end
 
   def current_user_threads
+    @active_link = 2
     @mythreads = @user.user_threads
   end
 
 	def show
+    @active_link = 1
     redirect_to root_path unless user_signed_in?
 
     begin

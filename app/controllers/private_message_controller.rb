@@ -11,6 +11,7 @@ class PrivateMessageController < ApplicationController
     @message = PrivateMessage.find( params[:id] )
     @message.readed = true
     @message.save
+    @user = current_user
   end
 
   def send_private_message
