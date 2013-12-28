@@ -11,19 +11,18 @@
       <%= link_to 'Forum', root_path, class: 'navbar-brand' %>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="mainHeader_navbar">
+
       <ul class="nav navbar-nav">
-        <% if user_signed_in? %>
-            <li>
-              <%= link_to 'User Profil', current_user_path %>
-            </li>
-        <% end %>
         <li>
           <%= render partial: "layouts/login" %>
         </li>
       </ul>
+
       <ul class="nav pull-right">
-        <li><%= render partial: "layouts/search" %></li>
+        <li>
+          <%= render partial: "layouts/search" %>
+        </li>
       </ul>
     </div>
 
