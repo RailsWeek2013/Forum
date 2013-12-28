@@ -59,7 +59,7 @@ class UserController < ApplicationController
     end
 
     def get_new_message_count
-      @new_message_count = @user.received_messages.where(readed: true).count
+      @new_message_count = @user.received_messages.where(readed: false).count
     end
 
     def set_current_user
