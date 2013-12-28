@@ -1,6 +1,16 @@
+<div id="footer">
+ <nav class="navbar navbar-default">
+   <ul class="nav navbar-nav">
+     <li>
+       <%= link_to "Impressum", impressum_path %>
+     </li>
 
- <nav class="navbar navbar-default navbar-fixed-bottom">
-    <ul class="nav navbar-nav">
-		<li> <%= link_to "Impressum", impressum_path %> </li>
-    </ul>
-</nav>
+     <li>
+       <% if current_user.try(:admin?) %>
+           <%= link_to 'Admin' , admins_index_path, class: "headerLink" %>
+       <% end %>
+     </li>
+
+   </ul>
+ </nav>
+</div>
