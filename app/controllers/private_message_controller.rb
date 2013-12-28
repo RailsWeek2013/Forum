@@ -31,7 +31,7 @@ class PrivateMessageController < ApplicationController
     @message.readed   = false   #TODO als Default setzten
 
     if @message.save
-      redirect_to current_user_path
+      redirect_to current_user_messages_path
     else
       render action: 'new_message'
     end

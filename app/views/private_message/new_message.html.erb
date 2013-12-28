@@ -18,6 +18,6 @@
 
     <div class="form-group">
         <%= f.submit class: 'btn btn-success', value: 'Senden' %>
-        <%= link_to 'Abbrechen', topics_path, class: 'btn btn-danger' %>
+        <%= link_to 'Abbrechen', current_user_messages_path, class: 'btn btn-danger' %>
     </div>
 <% end %>
