@@ -7,19 +7,23 @@ gem 'rails', '4.0.2'
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '4.0.1'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '4.0.1'
 
-gem 'devise'
-gem 'will_paginate'
+
+######################################
+gem 'devise', '3.2.2'
+gem 'will_paginate', '3.0.5'
 gem 'bootstrap-sass', '3.0.3.0'
-gem 'carrierwave'
-gem 'mini_magick'
+gem 'carrierwave', '0.9.0'
+gem 'mini_magick', '3.7.0'
+######################################
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
